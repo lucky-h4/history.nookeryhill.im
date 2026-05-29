@@ -567,6 +567,85 @@ figcaption {
 }
 .page-footer p { margin: 0.3rem 0; }
 
+/* ---------- Figure zoom ---------- */
+figure img { cursor: zoom-in; }
+
+/* ---------- Figure pair (two document pages side by side) ---------- */
+.figure-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin: 2rem 0;
+}
+.figure-pair figcaption { grid-column: 1 / -1; }
+@media (max-width: 600px) { .figure-pair { grid-template-columns: 1fr; } }
+
+/* ---------- Document gallery ---------- */
+.doc-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+.doc-thumb {
+  border: 1px solid #d4ccba;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #f3ede0;
+  cursor: zoom-in;
+  transition: box-shadow 0.15s;
+}
+.doc-thumb:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+.doc-thumb img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+.doc-thumb-caption {
+  padding: 0.35rem 0.6rem 0.5rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #6a5b48;
+  line-height: 1.35;
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 88vh;
+  border-radius: 4px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+  cursor: default;
+}
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 38px;
+  text-align: center;
+  cursor: pointer;
+}
+
 /* ---------- Print styles ---------- */
 @media print {
   body { background: white; font-size: 11pt; color: black; }
@@ -609,7 +688,7 @@ figcaption {
   <h1>A Path Through Time</h1>
   <p class="subtitle">A history of Nookery Hill, Abbey Road, Ballasalla</p>
   <span class="ornament" aria-hidden="true"></span>
-  <p class="dates">1134 &mdash; 1985</p>
+  <p class="dates">1134 &mdash; 2025</p>
 </header>
 
 <div class="container">
@@ -634,6 +713,7 @@ figcaption {
       <li class="appendix"><a href="#chronology">Chronology</a></li>
       <li class="appendix"><a href="#family">The Simcocks family</a></li>
       <li class="appendix"><a href="#sources">Sources</a></li>
+      <li class="appendix"><a href="#documents">Documents</a></li>
     </ol>
   </aside>
 
@@ -722,6 +802,11 @@ figcaption {
       <p>TO LET &mdash; Newly Erected Detached Villa and Garage in Abbey Road, Ballasalla. Gas, Electricity, Main Drainage. Latest Fittings and Conveniences. View by Appointment. Apply, Rushen Abbey. Tel: 17 Castletown.</p>
     </blockquote>
 
+    <figure>
+      <img src="newspaper/1938-to-let-advert.jpg" alt="The February 1938 'To Let' newspaper advertisement for the newly erected villa at Abbey Road, Ballasalla.">
+      <figcaption>The original advertisement, Manx press, February 1938.</figcaption>
+    </figure>
+
     <p>The advertisement is striking for several reasons. First, the property was described as already &ldquo;newly erected&rdquo; by February &mdash; yet, as we shall see, the formal planning approval for two villas at this location did not come through until <strong>2 June 1938</strong>. Either construction had already raced ahead of the paperwork (entirely possible in the relatively informal regulatory regime of the late 1930s) or the advert preceded actual completion by some months, with the builders gambling on imminent approval. Second, applications were to be made to <em>Rushen Abbey</em> &mdash; that is, to the company itself, not to a private owner. The houses were being built as rental investments under company management, not as homes for any individual.<a href="#s7" class="fn" data-fn="7">7<span class="fn-pop"><strong>Manx press, February 1938</strong>&ldquo;To Let&rdquo; advertisement.</span></a><a href="#s8" class="fn" data-fn="8">8<span class="fn-pop"><strong>PA-1439 (June 1938)</strong>Isle of Man Development Board planning approval for two detached houses and garages, Rushen Abbey, Ballasala. Architects: Lomas &amp; Barrett LRIBA.</span></a></p>
 
     <h4>Mrs M Simcocks's project</h4>
@@ -768,9 +853,19 @@ figcaption {
 
     <p>The first known occupant of Always was <strong>Mrs Frances Annie Garside</strong>, a widow. Her presence is recorded by what was, in the end, her departure: the <em>Isle of Man Examiner</em> of 12 December 1941 reported her death and the value of her personal estate as &pound;1,400, with one John Robert Quayle as her executor. A modest but comfortable estate. The advert that ran in the Manx press on 17 February 1942 fleshes out the picture considerably:<a href="#s10" class="fn" data-fn="10">10<span class="fn-pop"><strong>Garside obituary, Dec 1941</strong>Malew column, Manx press, 12 December 1941.</span></a></p>
 
+    <figure>
+      <img src="newspaper/1941-garside-obituary.png" alt="Obituary notice for Mrs Frances Annie Garside, Isle of Man Examiner, 12 December 1941.">
+      <figcaption>Mrs Garside&rsquo;s obituary, <em>Isle of Man Examiner</em>, December 1941.</figcaption>
+    </figure>
+
     <blockquote>
       <p>Highly attractive Sale by Public Auction of costly quality, modern HOUSEHOLD FURNITURE (including the good quality appointments removed from &lsquo;Always,&rsquo; Ballasalla, re the Estate of the late Mrs Garside)</p>
     </blockquote>
+
+    <figure>
+      <img src="newspaper/1942-estate-sale-advert.png" alt="Auction notice for the estate sale of Mrs Garside's furniture from Always, Ballasalla, February 1942.">
+      <figcaption>The auction notice, H. J. Johnson, Athol Street, February 1942.</figcaption>
+    </figure>
 
     <p>The catalogue is a small treasure: a figured brown oak dining suite with green-leather chairs, a Chesterfield in genuine hide with spring cushions, an upright pianoforte by Berry, a Phillip's all-wave AC wireless, an electric vacuum cleaner, a Singer treadle sewing machine, and &mdash; almost domestically heroic &mdash; a Turbinator DC electric hair dryer. This was a thoroughly modern, comfortably-furnished house, of exactly the kind the February 1938 advert had promised. Mrs Garside had moved into a brand-new villa with the latest fittings; she lived there for perhaps three years; and her contents were dispersed at the H. J. Johnson auction rooms in Athol Street on a Tuesday morning in February 1942.<a href="#s11" class="fn" data-fn="11">11<span class="fn-pop"><strong>Auction notice, February 1942</strong>H. J. Johnson auction, Athol Street, Douglas. Tuesday 17 February 1942.</span></a></p>
 
@@ -801,6 +896,11 @@ figcaption {
     <p>The exact date of the Simcocks's move from Rushen Abbey House into Always is not recorded in any document we have, but it can be bracketed. In May 1948 they were still at Rushen Abbey; by September 1954 Alfred Montague was unambiguously &ldquo;of &lsquo;Always,&rsquo; Abbey Road, Ballasalla.&rdquo; Somewhere in those six intervening years they relocated. The most likely trigger was Alfred's failing health. His 1954 obituary records that <em>&ldquo;it was towards the end of the war that Mr Simcock's health began to fail and his duties were largely taken over by his youngest son, Bertie, a former prisoner-of-war.&rdquo;</em> By the late 1940s, Alfred had stepped back from day-to-day management. The Rushen Abbey House residence presumably went with the managerial role; once Bertie had effectively taken over, his parents needed a home of their own, and Always &mdash; the rental property Lillian Maude had built ten years earlier &mdash; was the obvious choice.<a href="#s5" class="fn" data-fn="5">5<span class="fn-pop"><strong>AMS obituary, 1954</strong>Manx press, September 1954.</span></a></p>
 
     <p>Alfred Montague Simcocks died at Always on Saturday, <strong>25 September 1954</strong>, aged seventy-seven. The obituary in the Manx press devoted nearly a full column to his career &mdash; Glen Helen, Rushen Abbey, the wartime jam contracts, his role as Past Master of the Mona Lodge of Freemasons. His personal estate was probated at &pound;7,000. He left a will dated 29 January 1954 (mistakenly typed as &ldquo;1953&rdquo; on the face of the document, a slip later corrected by a separate affidavit from his solicitor's clerk). The will appointed his son Herbert Harold and his solicitor Robert Kinley Eason as joint executors and trustees, and left the entirety of his real and personal estate to his wife Lillian Maude. A separate set of detailed directions governed his shareholdings in Rushen Abbey and Gardens Ltd &mdash; three hundred shares to Lillian Maude in her own right, a further eight hundred not yet transferred in her name, and a series of family allocations that had already been made over the preceding years: one hundred shares each to his children William Montague, Lillian Molly Kennaugh and Alfred Howard; fifty to his daughter-in-law Ethelreda Simcocks (Bertie's wife); and 250 to Bertie himself, the managerial heir.<a href="#s14" class="fn" data-fn="14">14<span class="fn-pop"><strong>AMS probate, 1954</strong>Probate Form, High Court of Justice, Common Law Division, Testamentary Jurisdiction. Reference: 1954 / 469.</span></a></p>
+
+    <figure>
+      <img src="newspaper/1954-simcocks-obituary.jpg" alt="Obituary for Alfred Montague Simcocks, Manx press, September 1954.">
+      <figcaption>&ldquo;Mr &lsquo;Monty&rsquo; Simcocks&rdquo; &mdash; obituary, Manx press, September 1954.</figcaption>
+    </figure>
   </section>
 
   <!-- CHAPTER VII -->
@@ -871,7 +971,19 @@ figcaption {
 
     <p>In May 1996, in a closely-spaced trio of registrations, Mr Milligan acquired a further parcel (the &ldquo;Dolge&rdquo; conveyance, registered as No 02524), sponsored an affidavit dealing with the original pathway arrangements (No 02525), and then sold the whole property onwards to <strong>Carlington Limited</strong> (No 02846). Seven years later, in February 2003, Carlington Limited conveyed the property to <strong>Barbara Jean Thompson</strong>.<a href="#s21" class="fn" data-fn="21">21<span class="fn-pop"><strong>Deeds 1996 / 02524, /02525, /02846; 2003 / 00798</strong>The post-1985 chain of title.</span></a></p>
 
-    <p>Each of these post-1985 transactions deserves fuller treatment than the sources presently allow. The 1996 affidavit in particular &mdash; re-examining the public footpath that had defined the property's northern edge since 1905 &mdash; closes a loop with the 1977 Vincent affidavit and the 1985 Government Property Trustees deal, suggesting that the legal status of the path has been a recurring administrative concern across the property's modern history. The path that began as a muddy track through the Rushen Abbey plantation in the late nineteenth century has, for a hundred and twenty years now, defined the edge of this place. Each generation of owners has been obliged to come to terms with it. Each has done so a little differently. The track is still there.</p>
+    <p>Each of these post-1985 transactions deserves fuller treatment than the sources presently allow. The 1996 affidavit in particular &mdash; re-examining the public footpath that had defined the property's northern edge since 1905 &mdash; closes a loop with the 1977 Vincent affidavit and the 1985 Government Property Trustees deal, suggesting that the legal status of the path has been a recurring administrative concern across the property's modern history. </p>
+
+    <p>After Barbara Jean Thompson's acquisition in February 2003, the documentary record goes quiet for over a decade. The Manx Registry of Deeds &mdash; the roll-system under which every transaction from the 1904 footpath papers to the 1985 Milligan conveyance had been recorded &mdash; was supplemented by the Isle of Man's <strong>Land Registration Act 1982</strong>, which began its practical roll-out in the years that followed. For Nookery Hill, first registration came in the late summer of 2015.</p>
+
+    <p>On <strong>24 August 2015</strong>, a Vesting Assent was executed in which <strong>Dr Neil Thomson</strong> acted as both grantor and grantee &mdash; Executor of an estate transferring the property to himself as its beneficiary. The intervening chain of ownership between Barbara Jean Thompson's 2003 acquisition and this Vesting Assent has not yet been traced in full. Dr Thomson's registered service address was Lochletter House, Balnain, Inverness, Scotland &mdash; the first recorded occasion in the property's history that its proprietor was resident beyond the Island.</p>
+
+    <p>The title was formally first registered on <strong>7 October 2015</strong>, by application no.&thinsp;201501967, as title number <strong>43-01219</strong>. Where a chain of Rolls Office deed numbers had defined the property's legal identity since 1904, it now had a Land Registry title.</p>
+
+    <p>The tenure was brief. On <strong>30 October 2015</strong> Dr Thomson transferred the property to <strong>Mrs Debbie Claire Scrimshaw</strong>, whose registration was completed on 2 December 2015 by application no.&thinsp;201502533. Her service address on the register was Nookery Hill itself &mdash; Abbey Road, Ballasalla, IM9 3DF &mdash; confirming her as the resident owner, the first in the Land Registration era to live in the house under a formally registered title.</p>
+
+    <p>In <strong>August 2025</strong> the property passed to <strong>Jonathan Luckins</strong>, its present owner and the compiler of this history.</p>
+
+    <p>The path that began as a muddy track through the Rushen Abbey plantation in the late nineteenth century has, for over a hundred and twenty years, defined the northern edge of this place. Each generation of owners has been obliged to come to terms with it. Each has done so a little differently. The track is still there.</p>
   </section>
 
   <!-- CHRONOLOGY -->
@@ -924,6 +1036,11 @@ figcaption {
       <tr><td>?Mid&ndash;late 1980s</td><td>Always renamed Nookery Hill; extension built onto former Plot 3</td></tr>
       <tr><td>May 1996</td><td>Dolge &rarr; Milligan; affidavit re original pathway; Milligan &rarr; Carlington Ltd</td></tr>
       <tr><td>Feb 2003</td><td>Carlington Ltd &rarr; Barbara Jean Thompson</td></tr>
+      <tr><td>24 Aug 2015</td><td>Vesting Assent: Neil Thomson (as Executor) &rarr; Neil Thomson (as beneficiary); first registration under the Land Registration Act 1982</td></tr>
+      <tr><td>7 Oct 2015</td><td>Title formally first registered; title no.&thinsp;43-01219 assigned (application no.&thinsp;201501967)</td></tr>
+      <tr><td>30 Oct 2015</td><td>Neil Thomson &rarr; Mrs Debbie Claire Scrimshaw</td></tr>
+      <tr><td>2 Dec 2015</td><td>Scrimshaw ownership registered (application no.&thinsp;201502533)</td></tr>
+      <tr><td>Aug 2025</td><td>Nookery Hill acquired by Jonathan Luckins</td></tr>
       </tbody>
     </table>
   </section>
@@ -1021,6 +1138,71 @@ m. Lillian Maude SIMCOCKS (? &ndash; 18 Feb 1963)
     </ul>
   </section>
 
+  <!-- APPENDIX D: DOCUMENTS -->
+  <section class="chapter" id="documents">
+    <p class="chapter-number">Appendix D</p>
+    <h2>Documents</h2>
+    <h3>Primary sources in full</h3>
+
+    <p>The items below are the primary source documents held in this collection. Click any image to view at full size.</p>
+
+    <h4>The Footpath, 1904&ndash;05</h4>
+    <div class="doc-gallery">
+      <div class="doc-thumb" data-src="newspaper/1904-footpath-petition1.jpg" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1904-footpath-petition1.jpg" alt="Footpath petition document, page 1, 1904." loading="lazy">
+        <div class="doc-thumb-caption">Footpath petition, p.&thinsp;1</div>
+      </div>
+      <div class="doc-thumb" data-src="newspaper/1904-footpath-petition2.jpg" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1904-footpath-petition2.jpg" alt="Footpath petition document, page 2, 1904." loading="lazy">
+        <div class="doc-thumb-caption">Footpath petition, p.&thinsp;2</div>
+      </div>
+    </div>
+
+    <h4>The Villa, 1938</h4>
+    <div class="doc-gallery">
+      <div class="doc-thumb" data-src="newspaper/1938-to-let-advert.jpg" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1938-to-let-advert.jpg" alt="'To Let' newspaper advertisement for Always, Abbey Road, Ballasalla, February 1938." loading="lazy">
+        <div class="doc-thumb-caption">&ldquo;To Let&rdquo; advert, February 1938</div>
+      </div>
+    </div>
+
+    <h4>Mrs Garside, 1941&ndash;42</h4>
+    <div class="doc-gallery">
+      <div class="doc-thumb" data-src="newspaper/1941-garside-obituary.png" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1941-garside-obituary.png" alt="Obituary for Mrs Frances Annie Garside, December 1941." loading="lazy">
+        <div class="doc-thumb-caption">Garside obituary, Dec 1941</div>
+      </div>
+      <div class="doc-thumb" data-src="newspaper/1941-garside-will.png" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1941-garside-will.png" alt="Will of Mrs Frances Annie Garside, 1941." loading="lazy">
+        <div class="doc-thumb-caption">Garside will, 1941</div>
+      </div>
+      <div class="doc-thumb" data-src="newspaper/1942-estate-sale-advert.png" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1942-estate-sale-advert.png" alt="Estate sale advertisement, Always, Ballasalla, February 1942." loading="lazy">
+        <div class="doc-thumb-caption">Estate sale, Feb 1942</div>
+      </div>
+    </div>
+
+    <h4>Alfred Montague Simcocks, 1954</h4>
+    <div class="doc-gallery">
+      <div class="doc-thumb" data-src="newspaper/1954-simcocks-obituary.jpg" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1954-simcocks-obituary.jpg" alt="Obituary for Alfred Montague Simcocks, Manx press, September 1954." loading="lazy">
+        <div class="doc-thumb-caption">Simcocks obituary</div>
+      </div>
+      <div class="doc-thumb" data-src="newspaper/1954-simcocks-obituary-2.jpg" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1954-simcocks-obituary-2.jpg" alt="Second clipping of the Simcocks obituary, 1954." loading="lazy">
+        <div class="doc-thumb-caption">Simcocks obituary (2)</div>
+      </div>
+      <div class="doc-thumb" data-src="newspaper/1954-simcocks-obituary-3.png" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1954-simcocks-obituary-3.png" alt="Third clipping of the Simcocks obituary, 1954." loading="lazy">
+        <div class="doc-thumb-caption">Simcocks obituary (3)</div>
+      </div>
+      <div class="doc-thumb" data-src="newspaper/1954-simcocks-will.jpg" tabindex="0" role="button" aria-label="View full size">
+        <img src="newspaper/1954-simcocks-will.jpg" alt="Will of Alfred Montague Simcocks, 1954." loading="lazy">
+        <div class="doc-thumb-caption">Simcocks will, 1954</div>
+      </div>
+    </div>
+  </section>
+
   </main>
 </div>
 
@@ -1103,8 +1285,40 @@ m. Lillian Maude SIMCOCKS (? &ndash; 18 Feb 1963)
   btt.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // --- Lightbox ---
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  document.querySelectorAll('figure img').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+  document.querySelectorAll('.doc-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => openLightbox(thumb.dataset.src, thumb.querySelector('img').alt));
+    thumb.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(thumb.dataset.src, thumb.querySelector('img').alt); }
+    });
+  });
 })();
 </script>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Document viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&#215;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
 
 </body>
 </html>
