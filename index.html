@@ -646,6 +646,98 @@ figure img { cursor: zoom-in; }
   cursor: pointer;
 }
 
+/* ---------- Deed cards ---------- */
+.deed-card {
+  border: 1px solid #d4ccba;
+  border-radius: 6px;
+  padding: 1rem 1.2rem 1.2rem;
+  margin: 1rem 0;
+  background: #fdfaf4;
+}
+.deed-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+  gap: 1rem;
+}
+.deed-ref {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #7a3527;
+  letter-spacing: 0.04em;
+}
+.deed-type {
+  font-size: 0.82rem;
+  color: #8a7d6a;
+  font-style: italic;
+  white-space: nowrap;
+}
+.deed-parties {
+  font-size: 0.92rem;
+  margin: 0 0 0.75rem;
+  color: #2c2419;
+}
+.deed-docs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+.deed-doc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: zoom-in;
+}
+.deed-doc img {
+  width: 90px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #d4ccba;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: box-shadow 0.15s;
+  display: block;
+}
+.deed-doc:hover img { box-shadow: 0 4px 16px rgba(0,0,0,0.14); }
+.deed-doc-label {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: #6a5b48;
+  text-align: center;
+  line-height: 1.3;
+}
+.deed-pdf-link {
+  font-size: 0.72rem;
+  color: #7a3527;
+  text-decoration: none;
+  border: 1px solid rgba(122,53,39,0.3);
+  border-radius: 3px;
+  padding: 0.1rem 0.35rem;
+  text-align: center;
+}
+.deed-pdf-link:hover {
+  background: rgba(122,53,39,0.07);
+  text-decoration: none;
+}
+.deed-link {
+  font-size: 0.8rem;
+  color: #7a3527;
+  text-decoration: none;
+  border: 1px solid rgba(122,53,39,0.3);
+  border-radius: 3px;
+  padding: 0.1rem 0.35rem;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+.deed-link:hover {
+  background: rgba(122,53,39,0.07);
+  text-decoration: none;
+}
+
 /* ---------- Print styles ---------- */
 @media print {
   body { background: white; font-size: 11pt; color: black; }
@@ -714,6 +806,7 @@ figure img { cursor: zoom-in; }
       <li class="appendix"><a href="#family">The Simcocks family</a></li>
       <li class="appendix"><a href="#sources">Sources</a></li>
       <li class="appendix"><a href="#documents">Documents</a></li>
+      <li class="appendix"><a href="#deeds">Deeds</a></li>
     </ol>
   </aside>
 
@@ -1095,24 +1188,24 @@ m. Lillian Maude SIMCOCKS (? &ndash; 18 Feb 1963)
       <li id="s1"><strong>Deed Jun 1938 / 114</strong> &mdash; Conveyance: W. C. Cubbon to Rushen Abbey &amp; Gardens Ltd. References &ldquo;part of Abbey Demesne and called Cabel Leonard in the Parish of Malew.&rdquo;</li>
       <li id="s2"><strong>Manx press, 1904</strong> &mdash; &ldquo;Ballasalla Right-of-Way Case: Highway Board hear a petition.&rdquo; Contemporary newspaper coverage of the April 1904 hearing.</li>
       <li id="s3"><strong>Deed recital in Feb 1985 / 317</strong> &mdash; The five-party structure of the 1904 indenture and the 1977 Vincent affidavit are both recited in the 1985 conveyance to S. J. Milligan.</li>
-      <li id="s4"><strong>Manx Registry of Deeds</strong> &mdash; Deed nos. June 1938 / 110, 111, 112 (the 1904 and 1905 footpath documents) and 122 (the conveyance to Lillian Maude Simcocks), all registered together on 23 June 1938.</li>
+      <li id="s4"><strong>Manx Registry of Deeds</strong> &mdash; Deed nos. June 1938 / 110, 111, 112 (the 1904 and 1905 footpath documents) and 122 (the conveyance to Lillian Maude Simcocks), all registered together on 23 June 1938. <a href="#deed-1938-110" class="deed-link">↗&thinsp;110</a> <a href="#deed-1938-111" class="deed-link">111</a> <a href="#deed-1938-112" class="deed-link">112</a> <a href="#deed-1938-122" class="deed-link">122</a></li>
       <li id="s5"><strong>AMS obituary, 1954</strong> &mdash; &ldquo;Mr 'Monty' Simcocks&rdquo; obituary, Manx press, September 1954. Career, family, Rushen Abbey, Glen Helen, Freemasonry.</li>
       <li id="s6"><strong>Deed Jul 1970 / 355</strong> &mdash; Conveyance: Rushen Abbey &amp; Gardens Ltd to H. H. Simcocks. Recites the company's title back to &ldquo;Deed of Conveyance bearing date the 1st day of July 1924 from Rushen Abbey Limited in liquidation.&rdquo;</li>
       <li id="s7"><strong>Manx press, February 1938</strong> &mdash; &ldquo;To Let&rdquo; advertisement: newly erected detached villa, Abbey Road, Ballasalla.</li>
       <li id="s8"><strong>PA-1439 (June 1938)</strong> &mdash; Isle of Man Development Board planning approval for two detached houses and garages, Rushen Abbey, Ballasala. Architects: Lomas &amp; Barrett LRIBA. Owner: Mrs M Simcocks.</li>
-      <li id="s9"><strong>Deed Jun 1938 / 122</strong> &mdash; Conveyance: Rushen Abbey &amp; Gardens Ltd to Lillian Maude Simcocks. Indenture dated 18 June 1938, registered 23 June 1938. Signed by A. Rowell and A. M. Simcocks as Directors, H. E. Kneale as Secretary. Lillian Maude resident at Rushen Abbey at execution. &pound;54-18-5.</li>
+      <li id="s9"><strong>Deed Jun 1938 / 122</strong> &mdash; Conveyance: Rushen Abbey &amp; Gardens Ltd to Lillian Maude Simcocks. Indenture dated 18 June 1938, registered 23 June 1938. Signed by A. Rowell and A. M. Simcocks as Directors, H. E. Kneale as Secretary. Lillian Maude resident at Rushen Abbey at execution. &pound;54-18-5. <a href="#deed-1938-122" class="deed-link">↗&thinsp;View deed</a></li>
       <li id="s10"><strong>Garside obituary, December 1941</strong> &mdash; Malew column, Manx press, 12 December 1941. Estate &pound;1,400; executor John Robert Quayle.</li>
       <li id="s11"><strong>Auction notice, February 1942</strong> &mdash; H. J. Johnson auction, Athol Street, Douglas. Tuesday 17 February 1942. Catalogue of furniture removed from Always re estate of Mrs Garside.</li>
       <li id="s12"><strong>Planning applications PA-2665 / PA-2777 / PA-2927</strong> &mdash; Three small applications from 1942&ndash;44 documenting wartime tenant succession (Smith at Always 1942; Douglas/Douglass at Always 1943 and The Beeches 1944).</li>
-      <li id="s13"><strong>Deed May 1948 / 239</strong> &mdash; Conveyance of 100 sq yd extension from Rushen Abbey &amp; Gardens Ltd to Lillian Maude Simcocks. Plan by J. Philipps Lomas. &pound;7-10-0.</li>
+      <li id="s13"><strong>Deed May 1948 / 239</strong> &mdash; Conveyance of 100 sq yd extension from Rushen Abbey &amp; Gardens Ltd to Lillian Maude Simcocks. Plan by J. Philipps Lomas. &pound;7-10-0. <a href="#deed-1948-239" class="deed-link">↗&thinsp;View deed</a></li>
       <li id="s14"><strong>AMS probate, 1954</strong> &mdash; Probate of Alfred Montague Simcocks. Reference: 1954 / 469. Will dated 29 January 1954 (typed as &ldquo;1953&rdquo; in error, corrected by affidavit). Estate &pound;7,000.</li>
       <li id="s15"><strong>LMS will and probate, 1957 / 1963</strong> &mdash; Probate of Lillian Maude Simcocks. Reference: 1963 / 157. Will dated 23 December 1957, probate granted 16 March 1963. Estate &pound;8,000.</li>
-      <li id="s16"><strong>Deed Oct 1963 / 290</strong> &mdash; Conveyance from trustees of LMS will to William Montague Simcocks. &pound;3,600.</li>
+      <li id="s16"><strong>Deed Oct 1963 / 290</strong> &mdash; Conveyance from trustees of LMS will to William Montague Simcocks. &pound;3,600. <a href="#deed-1963-290" class="deed-link">↗&thinsp;View deed</a></li>
       <li id="s17"><strong>WMS probate, 1982</strong> &mdash; Probate of William Montague Simcocks. Reference: 1982 / 9. Will dated 7 December 1979, probate granted 11 January 1982. Estate &pound;14,000.</li>
-      <li id="s18"><strong>Deed Feb 1985 / 317</strong> &mdash; Conveyance: trustees of WMS will to S. J. Milligan. &pound;33,000. Registered 20 February 1985 at 3:22pm, No 1105.</li>
-      <li id="s19"><strong>Deed Feb 1985 / 307</strong> &mdash; Conveyance: Government Property Trustees to S. J. Milligan. &pound;2,000. Registered 20 February 1985 at 3:23pm, No 1106.</li>
+      <li id="s18"><strong>Deed Feb 1985 / 317</strong> &mdash; Conveyance: trustees of WMS will to S. J. Milligan. &pound;33,000. Registered 20 February 1985 at 3:22pm, No 1105. <a href="#deed-1985-317" class="deed-link">↗&thinsp;View deed</a></li>
+      <li id="s19"><strong>Deed Feb 1985 / 307</strong> &mdash; Conveyance: Government Property Trustees to S. J. Milligan. &pound;2,000. Registered 20 February 1985 at 3:23pm, No 1106. <a href="#deed-1985-307" class="deed-link">↗&thinsp;View deed</a></li>
       <li id="s20"><strong>Deed Oct 1985 / 426</strong> &mdash; Conveyance: S. J. Milligan to Curphey Clague Taggart and Diane Taggart.</li>
-      <li id="s21"><strong>Deeds 1996 / 02524, /02525, /02846; 2003 / 00798</strong> &mdash; The post-1985 chain of title (Dolge &rarr; Milligan, affidavit re original pathway, Milligan &rarr; Carlington Ltd, Carlington Ltd &rarr; Barbara Jean Thompson).</li>
+      <li id="s21"><strong>Deeds 1996 / 02524, /02525, /02846; 2003 / 00798</strong> &mdash; The post-1985 chain of title (Dolge &rarr; Milligan, affidavit re original pathway, Milligan &rarr; Carlington Ltd, Carlington Ltd &rarr; Barbara Jean Thompson). <a href="#deed-1996-02524" class="deed-link">↗&thinsp;02524</a> <a href="#deed-1996-02846" class="deed-link">02846</a> <a href="#deed-2003-00798" class="deed-link">00798</a></li>
     </ol>
 
     <h4>Photographs and plans</h4>
@@ -1203,6 +1296,146 @@ m. Lillian Maude SIMCOCKS (? &ndash; 18 Feb 1963)
     </div>
   </section>
 
+  <!-- APPENDIX E: DEEDS -->
+  <section class="chapter sources-section" id="deeds">
+    <p class="chapter-number">Appendix E</p>
+    <h2>Deeds</h2>
+    <h3>The documents of title</h3>
+
+    <p>The original deeds, conveyances, plans and related instruments in this collection are reproduced below. Click any thumbnail to enlarge; the PDF link opens the complete document.</p>
+
+    <h4>The footpath diversion, 1904&ndash;05 <em style="font-size:0.9em;color:#8a7d6a;">(registered together June 1938)</em></h4>
+
+    <div class="deed-card" id="deed-1938-110">
+      <div class="deed-card-header"><span class="deed-ref">Jun 1938 / 110</span><span class="deed-type">Petition</span></div>
+      <p class="deed-parties">Cubbon Family &rarr; The Highway Board</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1938-110-petition/deed-thumb.jpg" data-lightbox alt="Petition, Jun 1938/110" loading="lazy"><div class="deed-doc-label">Petition</div><a href="deeds/1938-110-petition/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1938-110-petition/footpath-plan-thumb.jpg" data-lightbox alt="Footpath plan, Jun 1938/110" loading="lazy"><div class="deed-doc-label">Footpath plan</div><a href="deeds/1938-110-petition/footpath-plan.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1938-110-petition/plan-thumb.jpg" data-lightbox alt="Site plan, Jun 1938/110" loading="lazy"><div class="deed-doc-label">Site plan</div><a href="deeds/1938-110-petition/plan.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <div class="deed-card" id="deed-1938-111">
+      <div class="deed-card-header"><span class="deed-ref">Jun 1938 / 111</span><span class="deed-type">Indenture</span></div>
+      <p class="deed-parties">Cubbon Family &amp; The Highway Board</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1938-111-indenture/deed-p1-thumb.jpg" data-lightbox alt="Indenture Jun 1938/111, p.1" loading="lazy"><div class="deed-doc-label">Indenture p.&thinsp;1</div><a href="deeds/1938-111-indenture/deed-p1.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1938-111-indenture/deed-p2-thumb.jpg" data-lightbox alt="Indenture Jun 1938/111, p.2" loading="lazy"><div class="deed-doc-label">Indenture p.&thinsp;2</div><a href="deeds/1938-111-indenture/deed-p2.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <div class="deed-card" id="deed-1938-112">
+      <div class="deed-card-header"><span class="deed-ref">Jun 1938 / 112</span><span class="deed-type">Tynwald Order</span></div>
+      <p class="deed-parties">Highway Board &rarr; Tynwald Court</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1938-112-tynwald-order/deed-thumb.jpg" data-lightbox alt="Tynwald Order, Jun 1938/112" loading="lazy"><div class="deed-doc-label">Order</div><a href="deeds/1938-112-tynwald-order/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <h4>The 1938 transactions</h4>
+
+    <div class="deed-card" id="deed-1938-121">
+      <div class="deed-card-header"><span class="deed-ref">Jun 1938 / 121</span><span class="deed-type">Release of mortgage</span></div>
+      <p class="deed-parties">Albert Rowell &rarr; Rushen Abbey &amp; Gardens Ltd</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1938-121-release-rowell/deed-thumb.jpg" data-lightbox alt="Release, Jun 1938/121" loading="lazy"><div class="deed-doc-label">Release</div><a href="deeds/1938-121-release-rowell/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1938-121-release-rowell/plan-thumb.jpg" data-lightbox alt="Plan, Jun 1938/121" loading="lazy"><div class="deed-doc-label">Plan</div><a href="deeds/1938-121-release-rowell/plan.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <div class="deed-card" id="deed-1938-122">
+      <div class="deed-card-header"><span class="deed-ref">Jun 1938 / 122</span><span class="deed-type">Conveyance</span></div>
+      <p class="deed-parties">Rushen Abbey &amp; Gardens Ltd &rarr; Lillian Maude Simcocks</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1938-122-conveyance-lillian-maude/deed-p1-thumb.jpg" data-lightbox alt="Conveyance Jun 1938/122, p.1" loading="lazy"><div class="deed-doc-label">Conveyance p.&thinsp;1</div><a href="deeds/1938-122-conveyance-lillian-maude/deed-p1.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1938-122-conveyance-lillian-maude/deed-p2-thumb.jpg" data-lightbox alt="Conveyance Jun 1938/122, p.2" loading="lazy"><div class="deed-doc-label">Conveyance p.&thinsp;2</div><a href="deeds/1938-122-conveyance-lillian-maude/deed-p2.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1938-122-conveyance-lillian-maude/plan-thumb.jpg" data-lightbox alt="Plan, Jun 1938/122" loading="lazy"><div class="deed-doc-label">Plan</div><a href="deeds/1938-122-conveyance-lillian-maude/plan.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <h4>The 1939 mortgage</h4>
+
+    <div class="deed-card" id="deed-1939-067">
+      <div class="deed-card-header"><span class="deed-ref">Sep 1939 / 067</span><span class="deed-type">Mortgage (cancelled)</span></div>
+      <p class="deed-parties">Albert Rowell for Rushen Abbey &amp; Gardens Ltd</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1939-067-mortgage-cancelled/deed-thumb.jpg" data-lightbox alt="Mortgage Sep 1939/067, cancelled" loading="lazy"><div class="deed-doc-label">Mortgage</div><a href="deeds/1939-067-mortgage-cancelled/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <h4>The 1948 extension</h4>
+
+    <div class="deed-card" id="deed-1948-239">
+      <div class="deed-card-header"><span class="deed-ref">May 1948 / 239</span><span class="deed-type">Conveyance</span></div>
+      <p class="deed-parties">Rushen Abbey &amp; Gardens Ltd &rarr; Lillian Maude Simcocks</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1948-239-conveyance-extension/deed-thumb.jpg" data-lightbox alt="Conveyance May 1948/239" loading="lazy"><div class="deed-doc-label">Conveyance</div><a href="deeds/1948-239-conveyance-extension/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1948-239-conveyance-extension/plan-thumb.jpg" data-lightbox alt="Plan, May 1948/239" loading="lazy"><div class="deed-doc-label">Plan</div><a href="deeds/1948-239-conveyance-extension/plan.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <h4>William Montague&rsquo;s conveyance, 1963</h4>
+
+    <div class="deed-card" id="deed-1963-290">
+      <div class="deed-card-header"><span class="deed-ref">Oct 1963 / 290</span><span class="deed-type">Conveyance</span></div>
+      <p class="deed-parties">Trustees of Lillian Maude Simcocks &rarr; William Montague Simcocks</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1963-290-conveyance-william-montague/deed-thumb.jpg" data-lightbox alt="Conveyance Oct 1963/290" loading="lazy"><div class="deed-doc-label">Conveyance</div><a href="deeds/1963-290-conveyance-william-montague/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1963-290-conveyance-william-montague/plan-thumb.jpg" data-lightbox alt="Plan, Oct 1963/290" loading="lazy"><div class="deed-doc-label">Plan</div><a href="deeds/1963-290-conveyance-william-montague/plan.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <h4>The 1985 sale to Milligan</h4>
+
+    <div class="deed-card" id="deed-1985-307">
+      <div class="deed-card-header"><span class="deed-ref">Feb 1985 / 307</span><span class="deed-type">Conveyance</span></div>
+      <p class="deed-parties">Government Property Trustees &rarr; Sydney James Milligan</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1985-307-government-trustees-milligan/deed-thumb.jpg" data-lightbox alt="Conveyance Feb 1985/307" loading="lazy"><div class="deed-doc-label">Conveyance</div><a href="deeds/1985-307-government-trustees-milligan/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1985-307-government-trustees-milligan/plan-thumb.jpg" data-lightbox alt="Plan, Feb 1985/307" loading="lazy"><div class="deed-doc-label">Plan</div><a href="deeds/1985-307-government-trustees-milligan/plan.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <div class="deed-card" id="deed-1985-317">
+      <div class="deed-card-header"><span class="deed-ref">Feb 1985 / 317</span><span class="deed-type">Conveyance</span></div>
+      <p class="deed-parties">Herbert Harold Simcocks (as trustee) &rarr; Sydney James Milligan</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1985-317-simcocks-milligan/deed-thumb.jpg" data-lightbox alt="Conveyance Feb 1985/317" loading="lazy"><div class="deed-doc-label">Conveyance</div><a href="deeds/1985-317-simcocks-milligan/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <h4>The 1996 transactions</h4>
+
+    <div class="deed-card" id="deed-1996-02524">
+      <div class="deed-card-header"><span class="deed-ref">May 1996 / 02524</span><span class="deed-type">Conveyance</span></div>
+      <p class="deed-parties">Dolge &rarr; Sydney James Milligan</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1996-02524-dolge-milligan/deed-thumb.jpg" data-lightbox alt="Conveyance May 1996/02524" loading="lazy"><div class="deed-doc-label">Conveyance</div><a href="deeds/1996-02524-dolge-milligan/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+        <div class="deed-doc"><img src="deeds/1996-02524-dolge-milligan/plan-thumb.jpg" data-lightbox alt="Plan, May 1996/02524" loading="lazy"><div class="deed-doc-label">Plan</div><a href="deeds/1996-02524-dolge-milligan/plan.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <div class="deed-card" id="deed-1996-02846">
+      <div class="deed-card-header"><span class="deed-ref">May 1996 / 02846</span><span class="deed-type">Conveyance</span></div>
+      <p class="deed-parties">Sydney James Milligan &rarr; Carlington Limited</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/1996-02846-milligan-carlington/deed-thumb.jpg" data-lightbox alt="Conveyance May 1996/02846" loading="lazy"><div class="deed-doc-label">Conveyance</div><a href="deeds/1996-02846-milligan-carlington/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+    <h4>The 2003 conveyance</h4>
+
+    <div class="deed-card" id="deed-2003-00798">
+      <div class="deed-card-header"><span class="deed-ref">Feb 2003 / 00798</span><span class="deed-type">Conveyance</span></div>
+      <p class="deed-parties">Carlington Limited &rarr; Barbara Jean Thompson</p>
+      <div class="deed-docs">
+        <div class="deed-doc"><img src="deeds/2003-00798-carlington-thompson/deed-thumb.jpg" data-lightbox alt="Conveyance Feb 2003/00798" loading="lazy"><div class="deed-doc-label">Conveyance</div><a href="deeds/2003-00798-carlington-thompson/deed.pdf" class="deed-pdf-link" target="_blank">PDF&thinsp;↗</a></div>
+      </div>
+    </div>
+
+  </section>
+
   </main>
 </div>
 
@@ -1213,6 +1446,11 @@ m. Lillian Maude SIMCOCKS (? &ndash; 18 Feb 1963)
   <p>A Path Through Time &mdash; Draft v2, 2026</p>
   <p>Compiled from deeds, plans, planning records, newspaper archives, probate records and photographs.</p>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Document viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&#215;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
 
 <script>
 (function() {
@@ -1303,7 +1541,7 @@ m. Lillian Maude SIMCOCKS (? &ndash; 18 Feb 1963)
   document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
   lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-  document.querySelectorAll('figure img').forEach(img => {
+  document.querySelectorAll('figure img, img[data-lightbox]').forEach(img => {
     img.addEventListener('click', () => openLightbox(img.src, img.alt));
   });
   document.querySelectorAll('.doc-thumb').forEach(thumb => {
@@ -1314,11 +1552,6 @@ m. Lillian Maude SIMCOCKS (? &ndash; 18 Feb 1963)
   });
 })();
 </script>
-
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Document viewer">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&#215;</button>
-  <img id="lightboxImg" src="" alt="">
-</div>
 
 </body>
 </html>
