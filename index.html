@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Path Through Time — Nookery Hill, Ballasalla</title>
+<meta name="description" content="A history of Nookery Hill, Abbey Road, Ballasalla, on the Isle of Man — from the Cistercian demesne of Rushen Abbey to the Simcocks family villa, 1134 to 1985.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Path Through Time — Nookery Hill, Ballasalla">
+<meta property="og:description" content="A history of Nookery Hill, Abbey Road, Ballasalla, on the Isle of Man — from the Cistercian demesne of Rushen Abbey to the Simcocks family villa, 1134 to 1985.">
+<meta property="og:image" content="images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Unlisted: discourage search engines without making the page truly private -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+body {
+  margin: 0;
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #2c2419;
+  background: #f9f6ef;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+a {
+  color: #7a3527;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(122, 53, 39, 0.4);
+  transition: text-decoration-color 0.15s ease;
+}
+a:hover { text-decoration-color: #7a3527; }
+
+/* ---------- Page header ---------- */
+.page-header {
+  text-align: center;
+  padding: 6rem 1.5rem 4rem;
+  background: linear-gradient(to bottom, #f3ede0, #f9f6ef);
+  border-bottom: 1px solid #e4dac4;
+}
+.page-header h1 {
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin: 0;
+  letter-spacing: -0.01em;
+  color: #2c2419;
+  line-height: 1.05;
+}
+.page-header .subtitle {
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: #6a5b48;
+  margin: 0.75rem 0 0;
+}
+.page-header .dates {
+  font-style: italic;
+  color: #8a7d6a;
+  margin: 2.5rem 0 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+}
+.page-header .ornament {
+  display: block;
+  margin: 1.5rem auto;
+  width: 60px;
+  height: 1px;
+  background: #b8a98c;
+  position: relative;
+}
+.page-header .ornament::before,
+.page-header .ornament::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background: #b8a98c;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.page-header .ornament::before { left: -8px; }
+.page-header .ornament::after { right: -8px; }
+
+/* ---------- Layout ---------- */
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+  gap: 3rem;
+}
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 4rem;
+    padding: 3rem 2rem 5rem;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    grid-template-columns: 260px minmax(0, 740px) 1fr;
+  }
+}
+
+/* ---------- Table of contents ---------- */
+.toc {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+@media (min-width: 1024px) {
+  .toc {
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+}
+.toc h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8a7d6a;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #d4ccba;
+}
+.toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: chapter;
+}
+.toc li {
+  margin-bottom: 0.55rem;
+  position: relative;
+  padding-left: 2.2rem;
+}
+.toc li::before {
+  counter-increment: chapter;
+  content: counter(chapter, upper-roman) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-style: italic;
+  color: #8a7d6a;
+  font-variant-numeric: oldstyle-nums;
+  width: 1.8rem;
+}
+.toc li.appendix::before {
+  content: "·";
+  font-size: 1.4rem;
+  line-height: 1;
+  top: -2px;
+}
+.toc a {
+  color: #2c2419;
+  text-decoration: none;
+  display: block;
+  transition: color 0.15s ease;
+}
+.toc a:hover { color: #7a3527; }
+.toc a.active {
+  color: #7a3527;
+  font-weight: 500;
+}
+.toc-divider {
+  height: 1px;
+  background: #d4ccba;
+  margin: 1.2rem 0;
+}
+
+/* Mobile TOC */
+.toc-toggle {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  background: #2c2419;
+  color: #f9f6ef;
+  border: none;
+  border-radius: 28px;
+  padding: 0.7rem 1.2rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  letter-spacing: 0.04em;
+}
+@media (max-width: 1023px) {
+  .toc-toggle { display: block; }
+  .toc {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #f9f6ef;
+    z-index: 40;
+    padding: 4rem 2rem 2rem;
+    overflow-y: auto;
+  }
+  .toc.open { display: block; }
+  .toc-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: 1px solid #d4ccba;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: #2c2419;
+    cursor: pointer;
+  }
+  .toc li { font-size: 1.1rem; margin-bottom: 1rem; }
+}
+@media (min-width: 1024px) {
+  .toc-close { display: none; }
+}
+
+/* ---------- Article ---------- */
+.article {
+  max-width: 720px;
+  margin: 0;
+}
+@media (min-width: 1400px) {
+  .article { margin: 0; }
+}
+
+.chapter {
+  margin-bottom: 4rem;
+  scroll-margin-top: 1rem;
+}
+.chapter:first-of-type { margin-top: 0; }
+.chapter-number {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #8a7d6a;
+  margin: 0;
+  font-weight: 500;
+}
+.chapter h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  margin: 0.4rem 0 0.2rem;
+  color: #2c2419;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+.chapter h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: #8a7d6a;
+  margin: 0 0 2rem;
+}
+.chapter h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #2c2419;
+  margin: 2.5rem 0 0.8rem;
+}
+
+.chapter p {
+  margin: 0 0 1.1rem;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Drop cap on first paragraph of each chapter */
+.chapter > p:first-of-type::first-letter {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4.5em;
+  font-weight: 600;
+  float: left;
+  line-height: 0.85;
+  margin: 0.05em 0.08em 0 0;
+  color: #7a3527;
+}
+
+/* ---------- Blockquote (for adverts, auction catalogue, will excerpts) ---------- */
+blockquote {
+  margin: 1.8rem 0;
+  padding: 1.2rem 1.5rem 1.2rem 1.8rem;
+  background: #f3ede0;
+  border-left: 3px solid #7a3527;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: #3a3225;
+  line-height: 1.55;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p { margin: 0; }
+blockquote p + p { margin-top: 0.6rem; }
+
+/* ---------- Footnote markers and popovers ---------- */
+.fn {
+  display: inline-block;
+  position: relative;
+  font-size: 0.65em;
+  vertical-align: super;
+  line-height: 1;
+  color: #7a3527;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 2px;
+  margin: 0 1px;
+  text-decoration: none;
+  font-variant-numeric: lining-nums;
+}
+.fn:hover, .fn:focus { color: #4a1f17; outline: none; }
+.fn::before {
+  content: "";
+  position: absolute;
+  inset: -4px -2px;
+}
+.fn-pop {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  max-width: 92vw;
+  background: #2c2419;
+  color: #f3ede0;
+  padding: 0.7rem 0.95rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  vertical-align: baseline;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 30;
+  font-family: "EB Garamond", serif;
+}
+.fn-pop::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #2c2419;
+}
+.fn.is-open .fn-pop,
+.fn:hover .fn-pop {
+  opacity: 1;
+  pointer-events: auto;
+}
+.fn-pop strong {
+  display: block;
+  color: #e0d8c2;
+  font-weight: 600;
+  margin-bottom: 2px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Figures (image placeholders) ---------- */
+figure {
+  margin: 2rem 0;
+}
+figure .placeholder {
+  background: #f3ede0;
+  border: 1px dashed #c2b496;
+  border-radius: 4px;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #8a7d6a;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+figure .placeholder::before {
+  content: "✦";
+  display: block;
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  font-style: normal;
+  color: #b8a98c;
+}
+figure img {
+  border-radius: 4px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #6a5b48;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ---------- Chronology table ---------- */
+.chronology {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  font-size: 0.95rem;
+}
+.chronology td {
+  padding: 0.6rem 0.8rem;
+  border-top: 1px solid #e4dac4;
+  vertical-align: top;
+  line-height: 1.45;
+}
+.chronology tr:first-child td { border-top: none; }
+.chronology td:first-child {
+  white-space: nowrap;
+  font-weight: 500;
+  color: #7a3527;
+  font-variant-numeric: oldstyle-nums;
+  width: 30%;
+}
+@media (max-width: 600px) {
+  .chronology td:first-child { width: 35%; font-size: 0.88rem; }
+  .chronology td { padding: 0.5rem 0.4rem; }
+}
+
+/* ---------- Family tree ---------- */
+.family-tree {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.83rem;
+  line-height: 1.55;
+  background: #f3ede0;
+  padding: 1.5rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 1.5rem 0;
+  color: #2c2419;
+}
+
+/* ---------- Sources list ---------- */
+.sources-section h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: italic;
+  margin: 2rem 0 0.6rem;
+  color: #2c2419;
+}
+.sources-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+.sources-list li {
+  padding: 0.45rem 0 0.45rem 1.8rem;
+  position: relative;
+  border-bottom: 1px dotted #e4dac4;
+}
+.sources-list li:last-child { border-bottom: none; }
+.sources-list .ref-code {
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  font-weight: 600;
+  color: #7a3527;
+  font-size: 0.85rem;
+  font-variant-numeric: lining-nums;
+}
+
+/* Numbered references for footnoted sources */
+.numbered-sources {
+  counter-reset: src;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.93rem;
+}
+.numbered-sources li {
+  counter-increment: src;
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.2rem;
+  border-bottom: 1px dotted #e4dac4;
+  scroll-margin-top: 1rem;
+}
+.numbered-sources li::before {
+  content: counter(src);
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  font-weight: 600;
+  color: #7a3527;
+  font-size: 0.85rem;
+  font-variant-numeric: lining-nums;
+  width: 1.8rem;
+}
+.numbered-sources li:target { background: #f7f0dc; }
+.numbered-sources strong {
+  font-weight: 600;
+  color: #2c2419;
+}
+
+/* ---------- Back to top ---------- */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: #2c2419;
+  color: #f9f6ef;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  z-index: 50;
+}
+.back-to-top.visible { opacity: 0.85; visibility: visible; }
+.back-to-top:hover { opacity: 1; }
+@media (max-width: 1023px) {
+  .back-to-top { bottom: 5rem; left: 1.5rem; }
+}
+
+/* ---------- Footer ---------- */
+.page-footer {
+  text-align: center;
+  padding: 3rem 1.5rem 4rem;
+  color: #8a7d6a;
+  font-size: 0.9rem;
+  font-style: italic;
+  border-top: 1px solid #e4dac4;
+  margin-top: 3rem;
+}
+.page-footer p { margin: 0.3rem 0; }
+
+/* ---------- Print styles ---------- */
+@media print {
+  body { background: white; font-size: 11pt; color: black; }
+  .toc, .toc-toggle, .back-to-top, .page-footer { display: none; }
+  .container { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+  .page-header { padding: 0 0 2rem; background: none; }
+  .chapter { break-inside: avoid-page; page-break-inside: avoid; }
+  .fn-pop { display: none; }
+  .fn { color: #7a3527; }
+  blockquote { background: #f5f5f5; border-left: 2px solid #555; }
+  a { color: black; text-decoration: none; }
+}
+
+/* ---------- A11y ---------- */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #2c2419;
+  color: #f9f6ef;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { top: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="page-header">
+  <h1>A Path Through Time</h1>
+  <p class="subtitle">A history of Nookery Hill, Abbey Road, Ballasalla</p>
+  <span class="ornament" aria-hidden="true"></span>
+  <p class="dates">1134 &mdash; 1985</p>
+</header>
+
+<div class="container">
+
+  <aside class="toc" id="toc" aria-label="Table of contents">
+    <button class="toc-close" aria-label="Close menu">×</button>
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#ch1">The Plantation</a></li>
+      <li><a href="#ch2">The Path and the Petition</a></li>
+      <li><a href="#ch3">A Quiet Decade and a Corporate Rebirth</a></li>
+      <li><a href="#ch4">The Two Villas</a></li>
+      <li><a href="#ch5">First Tenants and the War Years</a></li>
+      <li><a href="#ch6">Always Becomes Home</a></li>
+      <li><a href="#ch7">Lillian Maude's Tenure</a></li>
+      <li><a href="#ch8">William Montague's Years</a></li>
+      <li><a href="#ch9">The Departure</a></li>
+      <li><a href="#ch10">After</a></li>
+    </ol>
+    <div class="toc-divider"></div>
+    <ol start="11">
+      <li class="appendix"><a href="#chronology">Chronology</a></li>
+      <li class="appendix"><a href="#family">The Simcocks family</a></li>
+      <li class="appendix"><a href="#sources">Sources</a></li>
+    </ol>
+  </aside>
+
+  <main id="main" class="article">
+
+  <!-- CHAPTER I -->
+  <section class="chapter" id="ch1">
+    <p class="chapter-number">Chapter I</p>
+    <h2>The Plantation</h2>
+    <h3>Before 1904</h3>
+
+    <p>The story of Nookery Hill does not begin with a house. It does not even begin with a road. It begins with a path.</p>
+
+    <p>Before the path, however, there was the ground itself. The plot now occupied by Nookery Hill lies on the northern edge of the medieval demesne of Rushen Abbey &mdash; the Cistercian foundation of 1134 whose ruins still stand a few hundred yards to the south-east. Manx field-names preserve the deep history of this ground better than maps do. The land immediately to the west of the modern site appears in 1938 deeds under the name <em>Cabel Leonard</em> &mdash; most plausibly from the Manx Gaelic <em>Cabbal Lonan</em> or <em>Cabbal Leonard</em>, &ldquo;Chapel of Leonard.&rdquo; The reference is to a small chapel, long since vanished, that once stood somewhere on the abbey's working lands, and whose name outlived the building by perhaps half a millennium.<a href="#s1" class="fn" data-fn="1">1<span class="fn-pop"><strong>Deed Jun 1938 / 114</strong>Conveyance: W. C. Cubbon to Rushen Abbey &amp; Gardens Ltd. References &ldquo;part of Abbey Demesne and called Cabel Leonard in the Parish of Malew.&rdquo;</span></a></p>
+
+    <p>After the dissolution of the abbey in 1540, the demesne lands passed through many hands. By the late 19th century, the slope north of the abbey ruins had been planted with broad-leaved trees &mdash; beech and sycamore, predominantly &mdash; and was being managed as a small commercial plantation interspersed with orchard ground. Earth tracks crossed it. Local people walked through it. The whole area, between the back of the working abbey gardens and the open ground further north, was casually called the plantation.</p>
+
+    <figure>
+      <div class="placeholder">Photograph: &lsquo;Rushen Abbey Walls,&rsquo; c.1860<br>Woodland slope, dry stone wall, dirt path. A young woman in working apron, a small child on the wall, a boy in the distance. The clearest surviving image of how this ground looked before development.</div>
+      <figcaption>c.1860 &mdash; the woodland walls of Rushen Abbey.</figcaption>
+    </figure>
+
+    <p>A photograph survives from around 1860, showing a worn earth track running between dry-stone walls with mature beech rising up a slope behind. A young Manx woman in working apron and bonnet stands beside the wall, a small child seated on the stones, a boy further off. The trees in the picture are perhaps eighty years old &mdash; planted, then, in the 1780s &mdash; which gives some sense of when the plantation took its modern form. The path the photographer was standing on may well be the one that, in 1904, the Cubbon family would petition to move.</p>
+  </section>
+
+  <!-- CHAPTER II -->
+  <section class="chapter" id="ch2">
+    <p class="chapter-number">Chapter II</p>
+    <h2>The Path and the Petition</h2>
+    <h3>1904 &mdash; 1905</h3>
+
+    <p>Long before the house was built or the land sold into private hands, a public footpath wound its way across the orchard grounds behind Rushen Abbey. In the early years of the twentieth century, this path &mdash; little more than a muddy track &mdash; crossed a gently sloping field used for fruit and market gardening. But as the Edwardian years brought pressure to build new homes, it became an obstacle.</p>
+
+    <p>In the spring of 1904, <strong>William Christian Cubbon</strong>, <strong>Philip Christian</strong>, and <strong>Thomas William Cubbon</strong> &mdash; owners of the orchard and the adjoining plantation &mdash; gave notice of their intention to petition the Insular Highway Board for the diversion of the public footpath that ran through the centre of their land. Their plan was to realign it neatly along the northern boundary of the plot, leaving the rest of the ground free for what they hoped would be one villa, perhaps several. They offered to surface and fence the new path themselves.</p>
+
+    <p>It was not, as the press coverage made plain, an uncontested administrative measure. By the time the Highway Board sat at Ballasalla on a Wednesday in April 1904 to hear the petition, <strong>Thomas Jefferson, William Gold, Richard Burns,</strong> and <strong>John Murray</strong> &mdash; represented by the advocate G. Fred Clucas &mdash; had registered formal opposition. The petitioners were represented by Mr L. C. Kewley. The Board, chaired by Deemster Kneen, comprised W. Quayle, P. Cadman, J. C. Crellin, R. Cowley, and Jos. Qualtrough, with C. T. C. Callow as Clerk.<a href="#s2" class="fn" data-fn="2">2<span class="fn-pop"><strong>Manx press, 1904</strong>&ldquo;Ballasalla Right-of-Way Case: Highway Board hear a petition&rdquo; &mdash; contemporary newspaper coverage of the April 1904 hearing.</span></a></p>
+
+    <p>A revealing exchange emerges from the contemporary reporting. The foundations of one of the proposed houses had <em>already been dug</em> before the petition was lodged, and had cut into the line of the old footpath. The Great Enquest had been called together, found that the path was being interfered with, and ordered the builders to restore it. The 1904 petition, in other words, was partly a retrospective fix for an unauthorised start: the Cubbons were seeking statutory permission for something they had already begun on the ground.<a href="#s2" class="fn" data-fn="2">2<span class="fn-pop"><strong>Manx press, 1904</strong>&ldquo;Ballasalla Right-of-Way Case: Highway Board hear a petition.&rdquo;</span></a></p>
+
+    <p>Under cross-examination, W. C. Cubbon was candid. The path had been on the land when they bought it, and they had &ldquo;looked upon it as a useless piece of land.&rdquo; The plan was to build a two-storey villa first, with two more on the rest of the ground &mdash; though, he conceded, <em>&ldquo;we might build a row of houses.&rdquo;</em> Mr Cadman objected that putting the path in front of the houses would not do, since gardens would be needed there. The hearing was adjourned to Douglas for a fortnight to consider further.</p>
+
+    <h4>The 1904 Indenture and the 1905 Orders</h4>
+
+    <p>The matter was settled in a sequence of formal instruments registered over the following twelve months. The <strong>Deed of Covenant of 11 November 1904</strong> was made between five parties: William Christian Cubbon (1st part), Phillip Christian (2nd part), the Trustees of the settlement of Charlotte Cubbon (3rd part), Charlotte Cubbon herself (4th part), and the Highway Board (5th part). The presence of Charlotte Cubbon both in her own right and through trustees suggests her interest in the land was held under a marriage settlement &mdash; standard practice for the property of a married woman before the Married Women's Property reforms took full effect.<a href="#s3" class="fn" data-fn="3">3<span class="fn-pop"><strong>Deed recital in Feb 1985 / 317</strong>The five-party structure of the 1904 indenture is recited in detail in the 1985 conveyance to S. J. Milligan.</span></a></p>
+
+    <p>The <strong>Order of the Highway Board</strong> certifying the diversion followed on 6 April 1905, and the <strong>Order of Tynwald</strong> confirming the matter was made on 11 April 1905. Curiously, none of this paperwork was placed on the public record at the time. The three Cubbon-Highway Board documents lay unregistered for thirty-three years, only being filed at the Rolls Office on 23 June 1938 as part of the documentation tidying-up for the sale we shall come to shortly. They were given the consecutive deed numbers June 1938 / 110, /111 and /112 &mdash; sitting in the register, by deliberate design, immediately alongside the deed numbered June 1938 / 122.<a href="#s4" class="fn" data-fn="4">4<span class="fn-pop"><strong>Manx Registry of Deeds</strong>Deed nos. June 1938 / 110, 111, 112 &mdash; the 1904 and 1905 footpath documents, registered together on 23 June 1938.</span></a></p>
+
+    <figure>
+      <div class="placeholder">The 1904 footpath plan<br>The three plots (red, brown, green) and the diverted right-of-way (blue) along the northern boundary.</div>
+      <figcaption>Surveyed April 1904, filed in the Rolls Office June 1938.</figcaption>
+    </figure>
+
+    <h4>Boundaries and Burdens: what the 1904 Deed locked in</h4>
+
+    <p>Alongside the footpath redirection came a set of restrictive covenants that shaped not just access but the entire layout and use of the land &mdash; rules that, on paper, would bind the ground for decades. The covenants were designed to protect light, air, and appearance along the new footpath, while regulating development across the wider site.</p>
+
+    <p>The deed permitted the construction of only two villas, one on each of the southerly plots, with a maximum footprint of 1,800 square feet each. Any other structures &mdash; sheds, outhouses, fences, boundary walls &mdash; were restricted to a height of no more than five feet, unless approved in writing. The northern strip and the new path itself were to remain free of any building or erection whatsoever without formal permission from the Highway Board. The path was strictly for foot traffic; the deed forbade its use as a cart road, with one small exception allowing the landowners to cross it at fixed points (&ldquo;E to F&rdquo;) for agricultural access.</p>
+
+    <p>These restrictions were, as it turned out, <em>overtaken by events</em> almost from the moment the ink dried. The Cubbons' own house <em>The Orchards</em> already stood within the boundary when the 1904 plan was drawn. By 1938, two further dwellings would rise on the same ground &mdash; and one of them would straddle the very strip the 1904 deed had been most determined to keep clear.</p>
+  </section>
+
+  <!-- CHAPTER III -->
+  <section class="chapter" id="ch3">
+    <p class="chapter-number">Chapter III</p>
+    <h2>A Quiet Decade and a Corporate Rebirth</h2>
+    <h3>1905 &mdash; 1937</h3>
+
+    <p>For thirty years after the path was settled, the ground around it changed slowly. The Cubbons continued to live at The Orchards. The plantation remained a plantation. The footpath ran along its new line on the northern boundary, as the 1905 Order had directed. Meanwhile, a few hundred yards to the south, the working operation of Rushen Abbey was being quietly transformed.</p>
+
+    <p>Around 1914, a Manx-incomer of about thirty-seven, <strong>Alfred Montague Simcocks</strong> &mdash; born around 1877, and known to most of his contemporaries as &ldquo;Monty&rdquo; &mdash; joined the small concern then trading as <strong>Rushen Abbey Limited</strong>. He had come to the Island in his youth and, with a Mr Bert Livesey, had taken over the Glen Helen Hotel and Gardens, which he ran for a number of years. In about 1914 he became interested in Rushen Abbey Ltd, and within a few years had succeeded <strong>Walter Christian Cubbon</strong> as manager of the company. Cubbon remained on as chairman for some years more.<a href="#s5" class="fn" data-fn="5">5<span class="fn-pop"><strong>AMS obituary, 1954</strong>&ldquo;Mr 'Monty' Simcocks&rdquo; &mdash; obituary in the Manx press, September 1954.</span></a></p>
+
+    <p>Ten years later, on <strong>1 July 1924</strong>, Rushen Abbey Limited was placed in liquidation and its assets were transferred to a successor company, <strong>Rushen Abbey and Gardens Limited</strong>. The new name reflected what the operation had become under Simcocks's management: not just an old abbey site with a hotel, but a full horticultural and tourist enterprise. The gardens grew strawberries on a commercial scale; the works produced jam; the hotel housed visitors who came to walk among the ruins; and over the following decades a small pleasure-ground for children would be added. Through the 1920s and 1930s the company prospered, with Simcocks as managing director and a Mr <strong>Albert Rowell</strong> &mdash; both a director and the company's mortgagee &mdash; as his board colleague.<a href="#s6" class="fn" data-fn="6">6<span class="fn-pop"><strong>Deed Jul 1970 / 355</strong>Recites Rushen Abbey &amp; Gardens Ltd's title to certain land as derived from &ldquo;Deed of Conveyance bearing date the 1st day of July 1924 from Rushen Abbey Limited in liquidation.&rdquo;</span></a></p>
+
+    <p>This corporate continuity is important to the story of Nookery Hill, because by the time the houses came to be built in 1938 the same family that had petitioned to divert the footpath in 1904 was no longer the principal player. The Cubbons remained connected &mdash; W. C. Cubbon was retired to <em>Curlew Cottage</em> at Scarlett near Castletown by the late 1930s, with his wife <strong>Elizabeth MacArthur Cubbon</strong> &mdash; but the active hand was now the Simcocks family, working through the corporate structure of Rushen Abbey &amp; Gardens Ltd.<a href="#s1" class="fn" data-fn="1">1<span class="fn-pop"><strong>Deed Jun 1938 / 114</strong>Conveyance: W. C. Cubbon to Rushen Abbey &amp; Gardens Ltd.</span></a></p>
+  </section>
+
+  <!-- CHAPTER IV -->
+  <section class="chapter" id="ch4">
+    <p class="chapter-number">Chapter IV</p>
+    <h2>The Two Villas</h2>
+    <h3>February &mdash; June 1938</h3>
+
+    <p>The first public sign that something was changing on the ground appeared in February 1938, when a small advertisement appeared in the Manx press:</p>
+
+    <blockquote>
+      <p>TO LET &mdash; Newly Erected Detached Villa and Garage in Abbey Road, Ballasalla. Gas, Electricity, Main Drainage. Latest Fittings and Conveniences. View by Appointment. Apply, Rushen Abbey. Tel: 17 Castletown.</p>
+    </blockquote>
+
+    <p>The advertisement is striking for several reasons. First, the property was described as already &ldquo;newly erected&rdquo; by February &mdash; yet, as we shall see, the formal planning approval for two villas at this location did not come through until <strong>2 June 1938</strong>. Either construction had already raced ahead of the paperwork (entirely possible in the relatively informal regulatory regime of the late 1930s) or the advert preceded actual completion by some months, with the builders gambling on imminent approval. Second, applications were to be made to <em>Rushen Abbey</em> &mdash; that is, to the company itself, not to a private owner. The houses were being built as rental investments under company management, not as homes for any individual.<a href="#s7" class="fn" data-fn="7">7<span class="fn-pop"><strong>Manx press, February 1938</strong>&ldquo;To Let&rdquo; advertisement.</span></a><a href="#s8" class="fn" data-fn="8">8<span class="fn-pop"><strong>PA-1439 (June 1938)</strong>Isle of Man Development Board planning approval for two detached houses and garages, Rushen Abbey, Ballasala. Architects: Lomas &amp; Barrett LRIBA.</span></a></p>
+
+    <h4>Mrs M Simcocks's project</h4>
+
+    <p>The architectural plans, lodged with the Development Board on <strong>May 1938</strong> and approved on 2 June, are unambiguous about who the legal proprietor of the development was. The cover sheet of Plan No 1439 names the owner as <strong>&ldquo;Mrs M Simcocks&rdquo;</strong> &mdash; Lillian Maude Simcocks, Alfred Montague's wife. The architects were the well-regarded Douglas firm of <em>Lomas &amp; Barrett LRIBA</em>, who would also be involved in subsequent work on the site. The application was for &ldquo;two detached houses and garages, Rushen Abbey, Ballasala.&rdquo;<a href="#s8" class="fn" data-fn="8">8<span class="fn-pop"><strong>PA-1439 (June 1938)</strong>Owner: Mrs M Simcocks. Architects: Lomas &amp; Barrett LRIBA.</span></a></p>
+
+    <figure>
+      <div class="placeholder">PA-1439 architectural plans, May 1938<br>Elevations and ground-floor plans of House A (The Beeches) and House B (Always), with The Orchard sketched to the west.</div>
+      <figcaption>Lomas &amp; Barrett's design for the two villas, approved 2 June 1938.</figcaption>
+    </figure>
+
+    <p>So the development was, formally, the project of <em>Mrs</em> Simcocks, not her husband. This was not unusual practice. In an era when professional men's incomes were often invested through their wives' names &mdash; partly for tax efficiency, partly for matrimonial security &mdash; the device of a wife-as-proprietor was familiar. What is striking, however, is the mechanism by which she came to own the land in the first place.</p>
+
+    <h4>How the land changed hands</h4>
+
+    <p>On <strong>18 June 1938</strong> &mdash; just sixteen days after planning approval &mdash; Rushen Abbey and Gardens Limited executed an Indenture conveying a plot of one rood, seven and a half perches (about 1,200 square yards) to Lillian Maude Simcocks, wife of Alfred Montague Simcocks, for the sum of <strong>&pound;54 18s 5d</strong>. The plot was bounded north and south by the Company's own land, east by the highroad (Abbey Road), and west by the public pathway diverted in 1904.<a href="#s9" class="fn" data-fn="9">9<span class="fn-pop"><strong>Deed Jun 1938 / 122</strong>Conveyance: Rushen Abbey &amp; Gardens Ltd to Lillian Maude Simcocks. Indenture dated 18 June 1938, registered 23 June 1938.</span></a></p>
+
+    <p>The &pound;54-18-5 figure is suspicious in its precision: it is the kind of number that arrives at the end of a calculation, not the kind that emerges from a market negotiation. The deed of conveyance was executed for the company by two directors &mdash; <strong>Albert Rowell</strong> and <em>Alfred Montague Simcocks himself</em>, with Harry Edwin Kneale as company secretary. Alfred was therefore, in the same instrument, both vendor (in his capacity as director of the selling company) and effectively the husband of the purchaser. The transaction was internal to the family enterprise. Lillian Maude was, in 1938, <em>not yet</em> living at Always: her address on the conveyance is given as &ldquo;Rushen Abbey, Ballasalla&rdquo; &mdash; the company's working address, where the Simcocks were resident at Rushen Abbey House.<a href="#s9" class="fn" data-fn="9">9<span class="fn-pop"><strong>Deed Jun 1938 / 122</strong>Signed by A. Rowell and A. M. Simcocks as Directors, H. E. Kneale as Secretary. Lillian Maude resident at Rushen Abbey at execution.</span></a></p>
+
+    <p>Three further covenants bound the new owner. First, the property was to be subject to the 1904 Cubbon-Highway Board covenants, which the 1938 deed expressly incorporated. Second, the property was not to be used for any trade, manufacture or business which the Company might consider injurious to or in competition with its own business. Third, Lillian Maude was to erect and maintain good fences on all sides at her own expense. The non-compete clause is particularly telling: the company was actively protecting its jam, its hotel, and its gardens against the possibility that the new dwelling might one day host a competing operation.</p>
+
+    <h4>A small registry-clerk's manoeuvre</h4>
+
+    <p>On the very same Thursday afternoon &mdash; <strong>23 June 1938, at twenty past noon</strong> &mdash; that the Indenture conveying the land to Lillian Maude was being recorded at the Rolls Office, a small administrative tidying-up was also taking place. The 1904 Cubbon-Highway Board Indenture, the 1905 Highway Board Order, and the 1905 Tynwald Order &mdash; all of which had sat unregistered for over three decades &mdash; were placed on the record alongside the conveyance, taking the deed numbers 110, 111 and 112. The conveyance itself took number 122. The bureaucratic logic was straightforward: you could not give Lillian Maude clean title to a plot whose footpath history was unregistered. The 1904 paperwork was registered <em>because of</em> the 1938 conveyance, not for its own sake.<a href="#s4" class="fn" data-fn="4">4<span class="fn-pop"><strong>Manx Registry of Deeds</strong>Deed nos. June 1938 / 110, 111, 112, 122.</span></a></p>
+
+    <p>There is one more curiosity in this June 1938 cluster of registrations. On 11 June 1938 &mdash; twelve days before the conveyance to Lillian Maude &mdash; W. C. Cubbon and his wife Elizabeth had sold a separate parcel of land, <em>part of Abbey Demesne and called Cabel Leonard</em>, to Rushen Abbey &amp; Gardens Ltd for about &pound;110. Cubbon had only acquired that parcel three months earlier from one Thomas George Henry Maurice Moore. So in the spring and summer of 1938 there was a small flurry of land transactions consolidating the company's holdings, with Cubbon himself acting as an intermediary on some pieces of ground separate from (but adjacent to) the Always site itself.<a href="#s1" class="fn" data-fn="1">1<span class="fn-pop"><strong>Deed Jun 1938 / 114</strong>Conveyance: W. C. Cubbon to Rushen Abbey &amp; Gardens Ltd.</span></a></p>
+
+    <h4>Two houses, one project</h4>
+
+    <p>The Lomas &amp; Barrett plans show &mdash; and this is worth being precise about, because the point has been confused &mdash; <em>two</em> detached houses, not one. They were labelled simply House A and House B on the drawings. House A would become known as <strong>The Beeches</strong>, standing to the west and partly straddling what had been Plots 1 and 2 of the 1904 subdivision. House B would become known as <strong>Always</strong>, standing to the east and straddling Plots 2 and 3 of the same subdivision. To the west of both stood The Orchards, the Cubbon house dating from before 1904.</p>
+
+    <p>This arrangement involved a careless &mdash; or knowing &mdash; flouting of the 1904 covenants. The Beeches and Always were two villas, which was within the two-villa cap on Plots 1 and 2. But The Orchards already stood on Plot 1, making <em>three</em> dwellings on the ground designed for two. More substantively, Always extended onto Plot 3, on which the 1904 deed had forbidden <em>any building or erection whatsoever</em> without Highway Board permission. No deed of variation or covenant release survives in the records. The 1938 development simply ignored the constraints. Whether this was deliberate or a function of the corporate restructuring obscuring institutional memory is now impossible to say, but the family at the centre of it had every reason to know better: Alfred Montague Simcocks had succeeded W. C. Cubbon, the original 1904 petitioner, as manager of the company that imposed the covenants on itself.</p>
+  </section>
+
+  <!-- CHAPTER V -->
+  <section class="chapter" id="ch5">
+    <p class="chapter-number">Chapter V</p>
+    <h2>First Tenants and the War Years</h2>
+    <h3>1938 &mdash; 1948</h3>
+
+    <p>With Always completed by some point in 1938 or 1939, Lillian Maude let it out. Throughout the next decade the Simcocks themselves remained at Rushen Abbey House &mdash; Alfred running the company, Lillian Maude beside him &mdash; while Always passed through a sequence of tenants.</p>
+
+    <h4>Mrs Frances Annie Garside</h4>
+
+    <p>The first known occupant of Always was <strong>Mrs Frances Annie Garside</strong>, a widow. Her presence is recorded by what was, in the end, her departure: the <em>Isle of Man Examiner</em> of 12 December 1941 reported her death and the value of her personal estate as &pound;1,400, with one John Robert Quayle as her executor. A modest but comfortable estate. The advert that ran in the Manx press on 17 February 1942 fleshes out the picture considerably:<a href="#s10" class="fn" data-fn="10">10<span class="fn-pop"><strong>Garside obituary, Dec 1941</strong>Malew column, Manx press, 12 December 1941.</span></a></p>
+
+    <blockquote>
+      <p>Highly attractive Sale by Public Auction of costly quality, modern HOUSEHOLD FURNITURE (including the good quality appointments removed from &lsquo;Always,&rsquo; Ballasalla, re the Estate of the late Mrs Garside)</p>
+    </blockquote>
+
+    <p>The catalogue is a small treasure: a figured brown oak dining suite with green-leather chairs, a Chesterfield in genuine hide with spring cushions, an upright pianoforte by Berry, a Phillip's all-wave AC wireless, an electric vacuum cleaner, a Singer treadle sewing machine, and &mdash; almost domestically heroic &mdash; a Turbinator DC electric hair dryer. This was a thoroughly modern, comfortably-furnished house, of exactly the kind the February 1938 advert had promised. Mrs Garside had moved into a brand-new villa with the latest fittings; she lived there for perhaps three years; and her contents were dispersed at the H. J. Johnson auction rooms in Athol Street on a Tuesday morning in February 1942.<a href="#s11" class="fn" data-fn="11">11<span class="fn-pop"><strong>Auction notice, February 1942</strong>H. J. Johnson auction, Athol Street, Douglas. Tuesday 17 February 1942.</span></a></p>
+
+    <h4>The Smiths and the Douglasses</h4>
+
+    <p>The next tenants are recorded chiefly through the small bureaucratic traces of property maintenance. In September 1942, only eight months after the Garside contents auction, a planning application was submitted on behalf of <strong>&ldquo;Mrs Smith of Always&rdquo;</strong>, with the owner named as <strong>Mr R. Johnson Smith</strong>. They were applying to build a small garden tool shed. The application was approved on 1 October 1942. By August 1943, however, the registered occupant had changed again. A planning application for a fuel store and workshop at &ldquo;Always, Ballasalla&rdquo; was lodged by one <strong>L. Douglas</strong> (or Douglass &mdash; the spelling varies). And by July 1944, a third small application &mdash; for a greenhouse this time &mdash; was approved, with L. Douglass now listed at <em>The Beeches</em>, not Always. Either the Douglasses moved across from Always to The Beeches in 1944, or the wartime occupancy of the two villas was shifting fluidly, with the company-as-landlord moving its tenants around as circumstances dictated.<a href="#s12" class="fn" data-fn="12">12<span class="fn-pop"><strong>PA-2665 / PA-2777 / PA-2927</strong>Three small planning applications from 1942&ndash;44 documenting the wartime tenant succession.</span></a></p>
+
+    <h4>The jam factory in wartime</h4>
+
+    <p>Behind the back garden of Always, throughout these years, the productive heart of Rushen Abbey &amp; Gardens was running at full stretch. According to Alfred Montague's obituary, <em>&ldquo;during the last war the jam factory supplied all the jam for the Island and the Service establishments.&rdquo;</em> The aerial photograph of 3 May 1946 shows the working complex in its post-war state: a tight cluster of long-roofed buildings inside walled enclosures, with greenhouses and cold-frames in rows, and a roadway running along the south of the houses. Always and The Beeches sit at the south-western edge of the operation, no extensions visible, their gardens still small and rectangular. The 1904 footpath line remains intact along their northern boundary.<a href="#s5" class="fn" data-fn="5">5<span class="fn-pop"><strong>AMS obituary, 1954</strong>Manx press, September 1954.</span></a></p>
+
+    <figure>
+      <div class="placeholder">Aerial photograph, 3 May 1946<br>Rushen Abbey Gardens working complex, with Always, The Beeches and The Orchard visible at the south-west.</div>
+      <figcaption>The estate in its post-war working configuration &mdash; jam factory, greenhouses, walled garden, and the residential row along Abbey Road.</figcaption>
+    </figure>
+
+    <h4>The 1948 extension</h4>
+
+    <p>In May 1948, Rushen Abbey &amp; Gardens Ltd conveyed a small further parcel &mdash; only one hundred square yards &mdash; to Lillian Maude Simcocks for &pound;7 10s 0d. The plan, again drawn by J. Philipps Lomas, shows the extension as a small rectangle on the eastern side of Always, tidying the boundary between the residential plot and the company's working land. By 1948 the directors of the company had changed &mdash; Albert Rowell was no longer on the board; in his place sat one W. A. P. (or M. A. P.) Powell, and <strong>B. B. Simcocks</strong> &mdash; almost certainly Alfred Montague's youngest son, <strong>Herbert Harold (&ldquo;Bertie&rdquo;) Simcocks</strong>, who had begun assuming his father's managerial duties in the late war years. The company secretary by then was A. S. Faragher. Lillian Maude's address on this 1948 deed is still given as &ldquo;Rushen Abbey, Ballasalla&rdquo; &mdash; confirming that even ten years after acquiring Always, the Simcocks themselves had not yet moved into it.<a href="#s13" class="fn" data-fn="13">13<span class="fn-pop"><strong>Deed May 1948 / 239</strong>Conveyance of 100 sq yd extension. Plan by J. Philipps Lomas, Lomas &amp; Barrett.</span></a></p>
+  </section>
+
+  <!-- CHAPTER VI -->
+  <section class="chapter" id="ch6">
+    <p class="chapter-number">Chapter VI</p>
+    <h2>Always Becomes Home</h2>
+    <h3>c.1949 &mdash; 1954</h3>
+
+    <p>The exact date of the Simcocks's move from Rushen Abbey House into Always is not recorded in any document we have, but it can be bracketed. In May 1948 they were still at Rushen Abbey; by September 1954 Alfred Montague was unambiguously &ldquo;of &lsquo;Always,&rsquo; Abbey Road, Ballasalla.&rdquo; Somewhere in those six intervening years they relocated. The most likely trigger was Alfred's failing health. His 1954 obituary records that <em>&ldquo;it was towards the end of the war that Mr Simcock's health began to fail and his duties were largely taken over by his youngest son, Bertie, a former prisoner-of-war.&rdquo;</em> By the late 1940s, Alfred had stepped back from day-to-day management. The Rushen Abbey House residence presumably went with the managerial role; once Bertie had effectively taken over, his parents needed a home of their own, and Always &mdash; the rental property Lillian Maude had built ten years earlier &mdash; was the obvious choice.<a href="#s5" class="fn" data-fn="5">5<span class="fn-pop"><strong>AMS obituary, 1954</strong>Manx press, September 1954.</span></a></p>
+
+    <p>Alfred Montague Simcocks died at Always on Saturday, <strong>25 September 1954</strong>, aged seventy-seven. The obituary in the Manx press devoted nearly a full column to his career &mdash; Glen Helen, Rushen Abbey, the wartime jam contracts, his role as Past Master of the Mona Lodge of Freemasons. His personal estate was probated at &pound;7,000. He left a will dated 29 January 1954 (mistakenly typed as &ldquo;1953&rdquo; on the face of the document, a slip later corrected by a separate affidavit from his solicitor's clerk). The will appointed his son Herbert Harold and his solicitor Robert Kinley Eason as joint executors and trustees, and left the entirety of his real and personal estate to his wife Lillian Maude. A separate set of detailed directions governed his shareholdings in Rushen Abbey and Gardens Ltd &mdash; three hundred shares to Lillian Maude in her own right, a further eight hundred not yet transferred in her name, and a series of family allocations that had already been made over the preceding years: one hundred shares each to his children William Montague, Lillian Molly Kennaugh and Alfred Howard; fifty to his daughter-in-law Ethelreda Simcocks (Bertie's wife); and 250 to Bertie himself, the managerial heir.<a href="#s14" class="fn" data-fn="14">14<span class="fn-pop"><strong>AMS probate, 1954</strong>Probate Form, High Court of Justice, Common Law Division, Testamentary Jurisdiction. Reference: 1954 / 469.</span></a></p>
+  </section>
+
+  <!-- CHAPTER VII -->
+  <section class="chapter" id="ch7">
+    <p class="chapter-number">Chapter VII</p>
+    <h2>Lillian Maude's Tenure</h2>
+    <h3>1954 &mdash; 1963</h3>
+
+    <p>Lillian Maude Simcocks lived on at Always as a widow for another eight and a half years. She was the legal owner not only of Always but also of <em>The Beeches</em> &mdash; the sister villa Lomas &amp; Barrett had built in 1938 &mdash; and her management of both houses through her later years is detailed in the will she made in December 1957.</p>
+
+    <p>The will, dated 23 December 1957 and prepared by Dickinson, Cruickshank &amp; Co of Athol Street, Douglas, lists her five children formally: William Montague Simcocks (Electrical Engineer, then living at &ldquo;Brunshaw,&rdquo; Beach Road, Port St. Mary); Mary Lillian Molly Kennaugh (already living at The Beeches with her husband Mr Kennaugh); Amy Maud Marjorie Walton (then in Porters Lake, Nova Scotia, with her husband Mr Walton); Alfred Howard Simcocks (Advocate, of North Abbey, Ballasalla); and Herbert Harold (&ldquo;Bertie&rdquo;) Simcocks (Company Director, of Rushen Abbey House).<a href="#s15" class="fn" data-fn="15">15<span class="fn-pop"><strong>LMS will, 1957 &mdash; probate 1963</strong>Reference: 1963 / 157. Will dated 23 December 1957, probate granted 16 March 1963.</span></a></p>
+
+    <p>Two specific bequests in the will are revealing. First, Lillian Maude directed that The Beeches should be offered to her daughter Lillian Molly Kennaugh, who was already its occupant, on a fixed-value valuation by a competent valuer. Second, as to Always:</p>
+
+    <blockquote>
+      <p>I hereby further especially direct that my Trustees shall on my death permit any of my children other than my daughter the said Lillian Molly Kennaugh to purchase the same at such sum as shall be fixed therefore by a competent and qualified Valuer&hellip;</p>
+    </blockquote>
+
+    <p>The clause is precisely contrived to keep the two daughters' shares of property equivalent. Lillian Molly was to have The Beeches and could not also bid for Always; one of the other four children was to have Always; the proceeds and entitlements were to balance out across the family. As a piece of estate planning it is unsentimental, methodical, and obviously the product of long thought. By a later interlineated amendment &mdash; sworn to by John Robert Clague, the Advocates' Managing Clerk at 37 Athol Street &mdash; Lillian Molly was given a fall-back: she could acquire Always if none of her siblings wished to. The interlineation was made before the will was executed and was simply a careful family-law belt-and-braces.</p>
+
+    <p>Lillian Maude died at Always on <strong>18 February 1963</strong>. Her personal estate was probated at &pound;8,000 (the real property, of course, sat outside this figure). Probate was granted on 16 March to her son Bertie and to Robert Kinley Eason, by then no longer at Athol Street but installed at 1 Hope Street, Douglas, as His Honour the High Bailiff.<a href="#s15" class="fn" data-fn="15">15<span class="fn-pop"><strong>LMS probate, 1963</strong>Reference: 1963 / 157.</span></a></p>
+  </section>
+
+  <!-- CHAPTER VIII -->
+  <section class="chapter" id="ch8">
+    <p class="chapter-number">Chapter VIII</p>
+    <h2>William Montague's Years</h2>
+    <h3>1963 &mdash; 1981</h3>
+
+    <p>On 16 May 1963, three months after the grant of probate, Bertie and the High Bailiff (acting as Lillian Maude's trustees) conveyed Always to <strong>William Montague Simcocks</strong>, &ldquo;Electrical Engineer,&rdquo; for <strong>&pound;3,600</strong>. The deed was registered on 1 October 1963 as Deed No. 290 in the October book. The Beeches went separately to Lillian Molly Kennaugh under the same will and at around the same time.<a href="#s16" class="fn" data-fn="16">16<span class="fn-pop"><strong>Deed Oct 1963 / 290</strong>Trustees of LMS will to William Montague Simcocks. &pound;3,600.</span></a></p>
+
+    <p>William was already living at Always when he bought it. He had presumably moved in to look after his ageing mother sometime during her widowhood, replacing his earlier Port St. Mary address. The 1963 deed describes the property as comprising the two parcels (1938 and 1948) together with &ldquo;the dwelling house called and known as Always, the garage and all other buildings now erected on the said parcels of land.&rdquo; The deed grants William a right of access over the adjacent Beeches plot &ldquo;for the purpose of maintaining repairing and renewing the garage erected on the Scheduled Property&rdquo; &mdash; confirming that the Always garage was on the Beeches side of the boundary line, accessed by mutual arrangement between brother-in-law and sister.</p>
+
+    <figure>
+      <div class="placeholder">Aerial photograph, 3 March 1974<br>Rushen Abbey Gardens in its later tourism phase, with the Always / Beeches / Orchard row clearly visible along the top of the frame.</div>
+      <figcaption>The estate in its final decade as a Simcocks family holding.</figcaption>
+    </figure>
+
+    <p>William lived alone at Always for the next eighteen years. He never married. His later years coincided with the gradual transformation of the Rushen Abbey operation from a working horticultural concern into a tourist attraction &mdash; the strawberry beds gave way to family-rides infrastructure, visible on the 3 March 1974 aerial as a circular feature with radial spokes in the eastern part of the gardens. The jam factory contracts wound down. Bertie, who in 1963 had still been a &ldquo;Company Director&rdquo; at Rushen Abbey House, by the late 1970s described himself as a &ldquo;Catering Manager (retired)&rdquo; living at <strong>Abbey Mill Lodge, Bridge Road</strong> &mdash; a different address altogether, suggesting that the family had relinquished or reorganised the Rushen Abbey House tenancy at some point in the intervening years.</p>
+
+    <p>One small bureaucratic event from William's tenure deserves a note. On <strong>12 July 1977</strong>, William Henry Vincent, secretary to the Isle of Man Highway and Transport Board, swore an affidavit &ldquo;in the matter of the Public Rights of Way Acts 1961 and 1970&rdquo; concerning the footpath running along the northern boundary of Always. Some seventy years after the original 1904 diversion, the same line was being re-asserted under fresh statutory authority. The footpath that had defined the edge of this property since the Edwardian era remained, in 1977, still the legal edge of it. It remains so today.<a href="#s3" class="fn" data-fn="3">3<span class="fn-pop"><strong>Recital in Deed Feb 1985 / 317</strong>The 1977 Vincent affidavit is referenced in the recitals of the 1985 conveyance to Milligan.</span></a></p>
+
+    <p>William Montague Simcocks died at Always on <strong>9 December 1981</strong>. He left a will dated 7 December 1979, prepared by Kelly, Luft, Stanley &amp; Ashton of Douglas. His personal estate was probated at &pound;14,000. The will appointed his brother Bertie and his sister Amy Maud Marjorie Walton (by then returned from Nova Scotia and resident at 19 Close Corneil, Port Erin) as joint executors. The bequests revealed something of his private life: &pound;500 to one Freda Taggart of Phildraw, Ballasalla; the residue divided in equal shares among his surviving siblings, their named children &mdash; his nephew John Herbert Kennaugh (son of his &ldquo;late sister Mary Lillian Molly Kennaugh,&rdquo; who had therefore died at some point between 1963 and 1979), his nieces Anne Holker, Caroline Simcocks, Jennifer Walton and Brigette Simcocks &mdash; together with two outside beneficiaries: a friend, Helen Armstrong of Port Erin, and her daughter Valerie Julia Schofield of The Shore Hotel, Port St. Mary.<a href="#s17" class="fn" data-fn="17">17<span class="fn-pop"><strong>WMS probate, 1982</strong>Reference: 1982 / 9. Will dated 7 December 1979, probate granted 11 January 1982.</span></a></p>
+
+    <p>Probate was granted to Bertie and Amy on 11 January 1982. They held the property as trustees of William's estate for the next three years before placing it on the market.</p>
+  </section>
+
+  <!-- CHAPTER IX -->
+  <section class="chapter" id="ch9">
+    <p class="chapter-number">Chapter IX</p>
+    <h2>The Departure</h2>
+    <h3>February 1985</h3>
+
+    <p>After forty-seven years in the Simcocks family &mdash; across two generations and ultimately three owners (Lillian Maude, William Montague, and William's trustees) &mdash; Always was sold out of the family on <strong>12 February 1985</strong>. The purchaser was <strong>Sydney James Milligan</strong> of &ldquo;Norhyrst,&rdquo; Phildraw Road, Ballasalla. The price was <strong>&pound;33,000</strong> &mdash; a nine-fold increase in nominal value over the &pound;3,600 William had paid in 1963, broadly consistent with general property inflation across the period.<a href="#s18" class="fn" data-fn="18">18<span class="fn-pop"><strong>Deed Feb 1985 / 317</strong>Trustees of WMS will to Sydney James Milligan. &pound;33,000. Registered 20 February 1985 at 3:22pm, No 1105.</span></a></p>
+
+    <p>The transaction was almost certainly prepared with the long-term redevelopment of the site in mind, because on the same day &mdash; at twenty-three minutes past three on the afternoon of <strong>20 February 1985</strong>, just one minute after the William-to-Milligan deed was registered as No 1105 &mdash; a second Indenture was placed on the record as No 1106. The <strong>Government Property Trustees</strong> conveyed to Mr Milligan, for &pound;2,000, &ldquo;the right title and interest (if any)&rdquo; of the Crown in a small strip of land at Rushen Abbey. The cautious wording is significant: the Government was not warranting that it owned anything in particular, merely releasing whatever residual interest it might hold. The most likely subject is the Crown's residual interest in the 1904 footpath itself, or in some adjacent ribbon of public land. The two registrations bracketing one minute apart make clear that Mr Milligan was buying out every constraint and competing claim he could identify before turning to the question of what he might do with the property next.<a href="#s19" class="fn" data-fn="19">19<span class="fn-pop"><strong>Deed Feb 1985 / 307</strong>Government Property Trustees to S. J. Milligan. &pound;2,000. Registered 20 February 1985 at 3:23pm, No 1106.</span></a></p>
+
+    <p>It was in the years immediately following this 1985 purchase that the property was renamed Nookery Hill and the extension that gave the modern house its character was built. The 1980s expansion pushed onto the ground that the 1904 deed had been most concerned to keep clear &mdash; the strip north of the old footpath line, in the area marked as Plot 3 on the original Cubbon plan. The Always that had stood since 1938 as a comfortable detached villa, with rentals to Mrs Garside and a succession of wartime tenants and finally to the Simcocks family themselves, ceased to exist under that name. The house remained; the name went.</p>
+  </section>
+
+  <!-- CHAPTER X -->
+  <section class="chapter" id="ch10">
+    <p class="chapter-number">Chapter X</p>
+    <h2>After</h2>
+    <h3>1985 &mdash; present</h3>
+
+    <p>The post-Simcocks ownership of Nookery Hill is recorded, if thinly, in a further sequence of deeds. In October 1985, Mr Milligan conveyed part of the property &mdash; believed to be the garage strip, finally returned to The Beeches side after twenty-two years of awkward cross-boundary maintenance arrangements &mdash; to Curphey Clague Taggart and Diane Taggart, then resident at The Beeches. The Taggart name connects, perhaps not coincidentally, to the Freda Taggart of Phildraw whom William Montague had remembered in his 1979 will.<a href="#s20" class="fn" data-fn="20">20<span class="fn-pop"><strong>Deed Oct 1985 / 426</strong>S. J. Milligan to Curphey Clague Taggart and Diane Taggart.</span></a></p>
+
+    <p>In May 1996, in a closely-spaced trio of registrations, Mr Milligan acquired a further parcel (the &ldquo;Dolge&rdquo; conveyance, registered as No 02524), sponsored an affidavit dealing with the original pathway arrangements (No 02525), and then sold the whole property onwards to <strong>Carlington Limited</strong> (No 02846). Seven years later, in February 2003, Carlington Limited conveyed the property to <strong>Barbara Jean Thompson</strong>.<a href="#s21" class="fn" data-fn="21">21<span class="fn-pop"><strong>Deeds 1996 / 02524, /02525, /02846; 2003 / 00798</strong>The post-1985 chain of title.</span></a></p>
+
+    <p>Each of these post-1985 transactions deserves fuller treatment than the sources presently allow. The 1996 affidavit in particular &mdash; re-examining the public footpath that had defined the property's northern edge since 1905 &mdash; closes a loop with the 1977 Vincent affidavit and the 1985 Government Property Trustees deal, suggesting that the legal status of the path has been a recurring administrative concern across the property's modern history. The path that began as a muddy track through the Rushen Abbey plantation in the late nineteenth century has, for a hundred and twenty years now, defined the edge of this place. Each generation of owners has been obliged to come to terms with it. Each has done so a little differently. The track is still there.</p>
+  </section>
+
+  <!-- CHRONOLOGY -->
+  <section class="chapter" id="chronology">
+    <p class="chapter-number">Appendix A</p>
+    <h2>Chronology</h2>
+    <h3>A working timeline</h3>
+
+    <table class="chronology">
+      <tbody>
+      <tr><td>1134</td><td>Foundation of Rushen Abbey, the Cistercian house from whose demesne the ground later derives</td></tr>
+      <tr><td>1540</td><td>Dissolution of the abbey</td></tr>
+      <tr><td>c.1780s</td><td>Plantation of beech and sycamore woodland on the slope (inferred from tree maturity in c.1860 photograph)</td></tr>
+      <tr><td>c.1860</td><td>Photograph of woodland walls and earth path &mdash; earliest surviving image of the ground</td></tr>
+      <tr><td>pre-1904</td><td>House foundations dug, cutting into footpath; Great Enquest orders restoration</td></tr>
+      <tr><td>April 1904</td><td>Highway Board hears petition by W. C. Cubbon, Philip Christian and Thomas William Cubbon; opposed by Jefferson, Gold, Burns and Murray</td></tr>
+      <tr><td>11 Nov 1904</td><td>Deed of Covenant: Cubbon family (5 parties) &amp; Highway Board</td></tr>
+      <tr><td>6 April 1905</td><td>Order of the Highway Board</td></tr>
+      <tr><td>11 April 1905</td><td>Order of Tynwald confirming</td></tr>
+      <tr><td>c.1914</td><td>Alfred Montague Simcocks succeeds W. C. Cubbon as manager of Rushen Abbey Ltd</td></tr>
+      <tr><td>1 July 1924</td><td>Rushen Abbey Ltd in liquidation; assets transferred to Rushen Abbey and Gardens Ltd</td></tr>
+      <tr><td>July 1926</td><td>Rushen Abbey &amp; Gardens Ltd acquires the future Always plot (vendor unidentified in our papers)</td></tr>
+      <tr><td>9 March 1938</td><td>W. C. Cubbon acquires Cabel Leonard plot from T. G. H. M. Moore</td></tr>
+      <tr><td>Feb 1938</td><td>&ldquo;Newly erected detached villa and garage in Abbey Road&rdquo; advertised to let</td></tr>
+      <tr><td>May 1938</td><td>Lomas &amp; Barrett plans (PA-1439) lodged with Development Board</td></tr>
+      <tr><td>2 June 1938</td><td>Plans approved</td></tr>
+      <tr><td>11 June 1938</td><td>Cubbon &rarr; Rushen Abbey &amp; Gardens Ltd (Cabel Leonard parcel, &pound;110)</td></tr>
+      <tr><td>18 June 1938</td><td>Rushen Abbey &amp; Gardens Ltd &rarr; Lillian Maude Simcocks (Always plot, &pound;54-18-5)</td></tr>
+      <tr><td>23 June 1938</td><td>1904 and 1905 footpath documents registered alongside conveyance (Deeds 110, 111, 112, 122)</td></tr>
+      <tr><td>?1938&ndash;1941</td><td>Always let to Mrs Frances Annie Garside, widow</td></tr>
+      <tr><td>Dec 1941</td><td>Garside dies; estate &pound;1,400 (executor John Robert Quayle)</td></tr>
+      <tr><td>17 Feb 1942</td><td>Garside's contents auctioned at H. J. Johnson, Athol Street</td></tr>
+      <tr><td>Sep&ndash;Oct 1942</td><td>R. Johnson Smith and Mrs Smith tenants of Always (tool-shed approval PA-2665)</td></tr>
+      <tr><td>Aug 1943</td><td>L. Douglas(s) tenant of Always (fuel store/workshop PA-2777)</td></tr>
+      <tr><td>July 1944</td><td>L. Douglass moves to (or also occupies) The Beeches (greenhouse PA-2927)</td></tr>
+      <tr><td>May 1948</td><td>Rushen Abbey &amp; Gardens Ltd &rarr; Lillian Maude Simcocks (100 sq yd extension, &pound;7-10-0)</td></tr>
+      <tr><td>c.1948&ndash;54</td><td>Alfred Montague and Lillian Maude move from Rushen Abbey House into Always</td></tr>
+      <tr><td>25 Sep 1954</td><td>Alfred Montague Simcocks dies at Always, aged 77; estate &pound;7,000</td></tr>
+      <tr><td>23 Dec 1957</td><td>Lillian Maude executes her will</td></tr>
+      <tr><td>18 Feb 1963</td><td>Lillian Maude Simcocks dies at Always; estate &pound;8,000</td></tr>
+      <tr><td>16 May 1963</td><td>Trustees &rarr; William Montague Simcocks (&pound;3,600); The Beeches goes separately to Lillian Molly Kennaugh</td></tr>
+      <tr><td>?1963&ndash;79</td><td>Mary Lillian Molly Kennaugh dies</td></tr>
+      <tr><td>1970s</td><td>Rushen Abbey Gardens transitions from horticultural to tourist operation</td></tr>
+      <tr><td>12 July 1977</td><td>W. H. Vincent affidavit re public footpath (PRoW Acts 1961, 1970)</td></tr>
+      <tr><td>7 Dec 1979</td><td>William Montague executes his will</td></tr>
+      <tr><td>9 Dec 1981</td><td>William Montague Simcocks dies at Always; estate &pound;14,000</td></tr>
+      <tr><td>12 Feb 1985</td><td>Trustees &rarr; Sydney James Milligan (&pound;33,000)</td></tr>
+      <tr><td>19 Feb 1985</td><td>Government Property Trustees &rarr; Milligan (&pound;2,000)</td></tr>
+      <tr><td>Oct 1985</td><td>Milligan &rarr; Taggart family (garage strip)</td></tr>
+      <tr><td>?Mid&ndash;late 1980s</td><td>Always renamed Nookery Hill; extension built onto former Plot 3</td></tr>
+      <tr><td>May 1996</td><td>Dolge &rarr; Milligan; affidavit re original pathway; Milligan &rarr; Carlington Ltd</td></tr>
+      <tr><td>Feb 2003</td><td>Carlington Ltd &rarr; Barbara Jean Thompson</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FAMILY TREE -->
+  <section class="chapter" id="family">
+    <p class="chapter-number">Appendix B</p>
+    <h2>The Simcocks Family</h2>
+    <h3>A working reconstruction</h3>
+
+    <p>Reconstructed from probate records, deeds and newspaper notices. Question marks indicate dates still to be confirmed.</p>
+
+    <pre class="family-tree">Alfred Montague "Monty" SIMCOCKS (c.1877 &ndash; 25 Sept 1954)
+m. Lillian Maude SIMCOCKS (? &ndash; 18 Feb 1963)
+    │
+    ├── William Montague SIMCOCKS (? &ndash; 9 Dec 1981)
+    │   Electrical Engineer; unmarried
+    │   Lived at "Brunshaw," Port St. Mary, then Always from c.1957
+    │
+    ├── Mary Lillian Molly KENNAUGH (née Simcocks) (? &ndash; between 1963 and 1979)
+    │   m. &mdash; KENNAUGH; lived at The Beeches
+    │   └── John Herbert KENNAUGH (alive 1979)
+    │
+    ├── Amy Maud Marjorie WALTON (née Simcocks) (alive 1985)
+    │   m. &mdash; WALTON; lived Porters Lake, Nova Scotia, later Port Erin
+    │   └── Jennifer WALTON (alive 1979)
+    │
+    ├── Alfred Howard SIMCOCKS (alive 1979)
+    │   Advocate, of North Abbey, Ballasalla; firm A. H. Simcocks &amp; Co
+    │   m. &mdash; (wife's name not yet confirmed)
+    │   ├── Anne HOLKER (married name; alive 1979)
+    │   ├── Caroline SIMCOCKS (alive 1979)
+    │   └── Christopher Howard Montague COWLEY (adopted; excluded from inheritance under the Adoption Act 1953)
+    │
+    └── Herbert Harold "Bertie" SIMCOCKS (alive 1985)
+        Company Director, later Catering Manager (retired)
+        Lived at Rushen Abbey House, later Abbey Mill Lodge, Bridge Road
+        m. Ethelreda SIMCOCKS
+        └── Brigette SIMCOCKS (alive 1979)</pre>
+  </section>
+
+  <!-- SOURCES -->
+  <section class="chapter sources-section" id="sources">
+    <p class="chapter-number">Appendix C</p>
+    <h2>Sources</h2>
+    <h3>What this history is built on</h3>
+
+    <p>Every claim of fact in the narrative above is referenced to a specific document or set of documents in the lists that follow. Where a numbered footnote appears in the text, the matching reference can be found below.</p>
+
+    <h4>Numbered references</h4>
+    <ol class="numbered-sources">
+      <li id="s1"><strong>Deed Jun 1938 / 114</strong> &mdash; Conveyance: W. C. Cubbon to Rushen Abbey &amp; Gardens Ltd. References &ldquo;part of Abbey Demesne and called Cabel Leonard in the Parish of Malew.&rdquo;</li>
+      <li id="s2"><strong>Manx press, 1904</strong> &mdash; &ldquo;Ballasalla Right-of-Way Case: Highway Board hear a petition.&rdquo; Contemporary newspaper coverage of the April 1904 hearing.</li>
+      <li id="s3"><strong>Deed recital in Feb 1985 / 317</strong> &mdash; The five-party structure of the 1904 indenture and the 1977 Vincent affidavit are both recited in the 1985 conveyance to S. J. Milligan.</li>
+      <li id="s4"><strong>Manx Registry of Deeds</strong> &mdash; Deed nos. June 1938 / 110, 111, 112 (the 1904 and 1905 footpath documents) and 122 (the conveyance to Lillian Maude Simcocks), all registered together on 23 June 1938.</li>
+      <li id="s5"><strong>AMS obituary, 1954</strong> &mdash; &ldquo;Mr 'Monty' Simcocks&rdquo; obituary, Manx press, September 1954. Career, family, Rushen Abbey, Glen Helen, Freemasonry.</li>
+      <li id="s6"><strong>Deed Jul 1970 / 355</strong> &mdash; Conveyance: Rushen Abbey &amp; Gardens Ltd to H. H. Simcocks. Recites the company's title back to &ldquo;Deed of Conveyance bearing date the 1st day of July 1924 from Rushen Abbey Limited in liquidation.&rdquo;</li>
+      <li id="s7"><strong>Manx press, February 1938</strong> &mdash; &ldquo;To Let&rdquo; advertisement: newly erected detached villa, Abbey Road, Ballasalla.</li>
+      <li id="s8"><strong>PA-1439 (June 1938)</strong> &mdash; Isle of Man Development Board planning approval for two detached houses and garages, Rushen Abbey, Ballasala. Architects: Lomas &amp; Barrett LRIBA. Owner: Mrs M Simcocks.</li>
+      <li id="s9"><strong>Deed Jun 1938 / 122</strong> &mdash; Conveyance: Rushen Abbey &amp; Gardens Ltd to Lillian Maude Simcocks. Indenture dated 18 June 1938, registered 23 June 1938. Signed by A. Rowell and A. M. Simcocks as Directors, H. E. Kneale as Secretary. Lillian Maude resident at Rushen Abbey at execution. &pound;54-18-5.</li>
+      <li id="s10"><strong>Garside obituary, December 1941</strong> &mdash; Malew column, Manx press, 12 December 1941. Estate &pound;1,400; executor John Robert Quayle.</li>
+      <li id="s11"><strong>Auction notice, February 1942</strong> &mdash; H. J. Johnson auction, Athol Street, Douglas. Tuesday 17 February 1942. Catalogue of furniture removed from Always re estate of Mrs Garside.</li>
+      <li id="s12"><strong>Planning applications PA-2665 / PA-2777 / PA-2927</strong> &mdash; Three small applications from 1942&ndash;44 documenting wartime tenant succession (Smith at Always 1942; Douglas/Douglass at Always 1943 and The Beeches 1944).</li>
+      <li id="s13"><strong>Deed May 1948 / 239</strong> &mdash; Conveyance of 100 sq yd extension from Rushen Abbey &amp; Gardens Ltd to Lillian Maude Simcocks. Plan by J. Philipps Lomas. &pound;7-10-0.</li>
+      <li id="s14"><strong>AMS probate, 1954</strong> &mdash; Probate of Alfred Montague Simcocks. Reference: 1954 / 469. Will dated 29 January 1954 (typed as &ldquo;1953&rdquo; in error, corrected by affidavit). Estate &pound;7,000.</li>
+      <li id="s15"><strong>LMS will and probate, 1957 / 1963</strong> &mdash; Probate of Lillian Maude Simcocks. Reference: 1963 / 157. Will dated 23 December 1957, probate granted 16 March 1963. Estate &pound;8,000.</li>
+      <li id="s16"><strong>Deed Oct 1963 / 290</strong> &mdash; Conveyance from trustees of LMS will to William Montague Simcocks. &pound;3,600.</li>
+      <li id="s17"><strong>WMS probate, 1982</strong> &mdash; Probate of William Montague Simcocks. Reference: 1982 / 9. Will dated 7 December 1979, probate granted 11 January 1982. Estate &pound;14,000.</li>
+      <li id="s18"><strong>Deed Feb 1985 / 317</strong> &mdash; Conveyance: trustees of WMS will to S. J. Milligan. &pound;33,000. Registered 20 February 1985 at 3:22pm, No 1105.</li>
+      <li id="s19"><strong>Deed Feb 1985 / 307</strong> &mdash; Conveyance: Government Property Trustees to S. J. Milligan. &pound;2,000. Registered 20 February 1985 at 3:23pm, No 1106.</li>
+      <li id="s20"><strong>Deed Oct 1985 / 426</strong> &mdash; Conveyance: S. J. Milligan to Curphey Clague Taggart and Diane Taggart.</li>
+      <li id="s21"><strong>Deeds 1996 / 02524, /02525, /02846; 2003 / 00798</strong> &mdash; The post-1985 chain of title (Dolge &rarr; Milligan, affidavit re original pathway, Milligan &rarr; Carlington Ltd, Carlington Ltd &rarr; Barbara Jean Thompson).</li>
+    </ol>
+
+    <h4>Photographs and plans</h4>
+    <ul class="sources-list">
+      <li><span class="ref-code">P1</span>Photograph, c.1860 &mdash; &ldquo;Rushen Abbey Walls.&rdquo; Woodland slope and dry stone wall with figures.</li>
+      <li><span class="ref-code">P2</span>Aerial photograph, 3 May 1946 &mdash; Ballasalla and Rushen Abbey complex.</li>
+      <li><span class="ref-code">P3</span>Aerial photograph, 3 March 1974 &mdash; Rushen Abbey Gardens and the residential row.</li>
+      <li><span class="ref-code">P4</span>Isle of Man Planning Map, c.1950s &mdash; labelled extract showing The Orchard, The Beeches, Always, Rushen Abbey Hotel.</li>
+    </ul>
+
+    <h4>Outstanding research</h4>
+    <p>Lines of inquiry that would strengthen the history if pursued:</p>
+    <ul class="sources-list">
+      <li><span class="ref-code">&middot;</span>Probate of Mary Lillian Molly Kennaugh (death between 1963 and 1979) &mdash; would confirm what happened to The Beeches.</li>
+      <li><span class="ref-code">&middot;</span>Probate of Alfred Howard Simcocks (alive 1979) &mdash; last sibling of Bertie's generation.</li>
+      <li><span class="ref-code">&middot;</span>1924 Manx Companies Registry filings &mdash; incorporation of Rushen Abbey &amp; Gardens Ltd.</li>
+      <li><span class="ref-code">&middot;</span>July 1926 Deed of Conveyance &mdash; vendor of the Always plot to Rushen Abbey &amp; Gardens Ltd.</li>
+      <li><span class="ref-code">&middot;</span>The 1996 affidavit (Deed 02525) re the original pathway.</li>
+      <li><span class="ref-code">&middot;</span>1980s planning application for the Always-to-Nookery-Hill extension.</li>
+      <li><span class="ref-code">&middot;</span>1911 and 1921 census returns &mdash; AMS and LMS marriage date, early addresses.</li>
+      <li><span class="ref-code">&middot;</span>Glen Helen Hotel records, pre-1914 &mdash; AMS and Bert Livesey's partnership.</li>
+      <li><span class="ref-code">&middot;</span>Identity of Elizabeth MacArthur Cubbon, Albert Rowell, and the Walton/Kennaugh husbands.</li>
+    </ul>
+  </section>
+
+  </main>
+</div>
+
+<button class="toc-toggle" id="tocToggle" aria-label="Open table of contents" aria-controls="toc" aria-expanded="false">Contents</button>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+<footer class="page-footer">
+  <p>A Path Through Time &mdash; Draft v2, 2026</p>
+  <p>Compiled from deeds, plans, planning records, newspaper archives, probate records and photographs.</p>
+</footer>
+
+<script>
+(function() {
+  // --- TOC: scroll-spy to highlight active chapter ---
+  const tocLinks = document.querySelectorAll('.toc a');
+  const sections = Array.from(document.querySelectorAll('.chapter'));
+
+  const setActive = () => {
+    const scrollPos = window.scrollY + 100;
+    let current = sections[0];
+    for (const s of sections) {
+      if (s.offsetTop <= scrollPos) current = s;
+    }
+    tocLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+    });
+  };
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+
+  // --- Mobile TOC drawer ---
+  const tocToggle = document.getElementById('tocToggle');
+  const tocClose = document.querySelector('.toc-close');
+  const toc = document.getElementById('toc');
+
+  tocToggle.addEventListener('click', () => {
+    toc.classList.add('open');
+    tocToggle.setAttribute('aria-expanded', 'true');
+  });
+  if (tocClose) {
+    tocClose.addEventListener('click', () => {
+      toc.classList.remove('open');
+      tocToggle.setAttribute('aria-expanded', 'false');
+    });
+  }
+  // Close mobile TOC when a link is clicked
+  tocLinks.forEach(a => a.addEventListener('click', () => {
+    if (window.innerWidth < 1024) {
+      toc.classList.remove('open');
+      tocToggle.setAttribute('aria-expanded', 'false');
+    }
+  }));
+
+  // --- Footnote popovers: click to toggle, click-outside to dismiss ---
+  document.querySelectorAll('.fn').forEach(fn => {
+    fn.addEventListener('click', (e) => {
+      // If link target exists (jump to source) and the popover is already open, let the link work
+      if (fn.classList.contains('is-open')) {
+        // Allow navigation to the source
+        return;
+      }
+      e.preventDefault();
+      document.querySelectorAll('.fn.is-open').forEach(o => {
+        if (o !== fn) o.classList.remove('is-open');
+      });
+      fn.classList.add('is-open');
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.fn')) {
+      document.querySelectorAll('.fn.is-open').forEach(o => o.classList.remove('is-open'));
+    }
+  });
+
+  // --- Back-to-top ---
+  const btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  btt.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+
+</body>
+</html>
