@@ -214,7 +214,7 @@ function kmlCorners(n, s, e, w, rotDeg) {
   var cLat = (n + s) / 2, cLon = (e + w) / 2;
   var mLat = 111319, mLon = mLat * Math.cos(cLat * Math.PI / 180);
   var halfH = (n - s) / 2 * mLat, halfW = (e - w) / 2 * mLon;
-  var rad = rotDeg * Math.PI / 180, c = Math.cos(rad), s2 = Math.sin(rad);
+  var rad = -rotDeg * Math.PI / 180, c = Math.cos(rad), s2 = Math.sin(rad); // KML CCW = screen CCW = geographic CW, so negate
   function rot(x, y) { return { x: x*c - y*s2, y: x*s2 + y*c }; }
   var tl = rot(-halfW,  halfH), tr = rot(halfW,  halfH), bl = rot(-halfW, -halfH);
   return {
