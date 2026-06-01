@@ -81,21 +81,6 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 11px;
 }
 .base-btn.active, .base-btn:hover { background: #7a3527; color: #f9f6ef; border-color: #7a3527; }
 
-/* Video section */
-.video-section { background: #1a1208; color: #f3ede0; padding: 5rem 1.5rem 4rem; }
-.video-inner { max-width: 860px; margin: 0 auto; text-align: center; }
-.video-section h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 600; margin: 0 0 0.5rem; color: #e4dac4; }
-.video-section .sub { font-style: italic; color: #8a7d6a; margin: 0 0 2.5rem; font-size: 1.05rem; }
-.video-section video { width: 100%; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.5); display: block; margin: 0 auto 2.5rem; }
-.ornament { display: block; width: 60px; height: 1px; background: #3a2e1e; margin: 0 auto 2.5rem; position: relative; }
-.ornament::before, .ornament::after { content: ""; position: absolute; top: 50%; width: 4px; height: 4px; background: #3a2e1e; border-radius: 50%; transform: translateY(-50%); }
-.ornament::before { left: -8px; } .ornament::after { right: -8px; }
-.download-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.dl-btn { font-family: "EB Garamond", serif; font-size: 0.95rem; color: #b8a98c; text-decoration: none; border: 1px solid rgba(184,169,140,0.3); border-radius: 4px; padding: 0.5rem 1.3rem; transition: background 0.15s, color 0.15s; }
-.dl-btn:hover { background: rgba(184,169,140,0.1); color: #e4dac4; }
-
-.map-footer { background: #110d06; color: #3a2e1e; text-align: center; padding: 1.5rem; font-size: 0.85rem; font-style: italic; }
-.map-footer a { color: #5a4e3a; text-decoration: none; } .map-footer a:hover { color: #8a7d6a; }
 .leaflet-control-attribution { font-size: 0.65rem !important; }
 </style>
 </head>
@@ -117,24 +102,6 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 11px;
   </div>
 </div>
 
-<section class="video-section">
-  <div class="video-inner">
-    <h2>A hundred and eleven years</h2>
-    <p class="sub">Historical plans and surveys overlaid on the modern site &mdash; 1904 to 2015.</p>
-    <span class="ornament" aria-hidden="true"></span>
-    <video autoplay muted loop playsinline>
-      <source src="map/nookery-hill-overlay.mp4" type="video/mp4">
-    </video>
-    <div class="download-row">
-      <a href="map/nookery-hill-overlay.kmz" class="dl-btn" download>&#8595; Download KMZ for Google Earth</a>
-      <a href="index.html" class="dl-btn">&#8592; Full History</a>
-    </div>
-  </div>
-</section>
-
-<footer class="map-footer">
-  <p>A Path Through Time &mdash; Nookery Hill, Abbey Road, Ballasalla &middot; <a href="index.html">Return to full history</a></p>
-</footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
