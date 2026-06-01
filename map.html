@@ -82,6 +82,48 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 11px;
 .base-btn.active, .base-btn:hover { background: #7a3527; color: #f9f6ef; border-color: #7a3527; }
 
 .leaflet-control-attribution { font-size: 0.65rem !important; }
+
+/* Mobile panel toggle button */
+.panel-toggle {
+  display: none;
+  position: absolute; bottom: 80px; left: 10px; z-index: 501;
+  background: rgba(28,22,14,0.93); color: #c8b89a;
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 6px;
+  padding: 0.55rem 0.9rem; font-family: "EB Garamond", serif; font-size: 0.9rem;
+  cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Mobile: bottom-sheet panel, bigger touch targets */
+@media (max-width: 680px) {
+  .panel-toggle { display: block; }
+
+  .layer-panel {
+    top: auto; left: 0; right: 0; bottom: 0; width: 100%; max-height: 55vh;
+    border-radius: 14px 14px 0 0;
+    transform: translateY(100%);
+    transition: transform 0.25s ease;
+  }
+  .layer-panel.open { transform: translateY(0); }
+
+  /* Drag handle */
+  .panel-title::before {
+    content: ''; display: block; width: 36px; height: 4px;
+    background: rgba(255,255,255,0.2); border-radius: 2px;
+    margin: 0 auto 0.5rem;
+  }
+
+  /* Bigger touch targets */
+  .layer-row { padding: 0.75rem 1.1rem; }
+  .layer-top { gap: 0.65rem; }
+  .layer-toggle { width: 22px; height: 22px; }
+  .layer-toggle:checked::after { font-size: 14px; top: -1px; left: 2px; }
+  .layer-name { font-size: 1rem; }
+  .layer-desc { font-size: 0.8rem; }
+  .layer-opacity { margin-left: 1.6rem; }
+  input[type=range] { height: 5px; }
+  input[type=range]::-webkit-slider-thumb { width: 20px; height: 20px; }
+  .opacity-label { font-size: 0.78rem; width: 36px; }
+}
 </style>
 </head>
 <body>
@@ -96,9 +138,10 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 11px;
   <div class="layer-panel" id="layerPanel">
     <div class="panel-title">Overlays &mdash; tick to show</div>
   </div>
+  <button class="panel-toggle" id="panelToggle">&#9776;&thinsp; Overlays</button>
   <div class="base-switcher">
-    <button class="base-btn active" id="btnSat" onclick="setBase('sat')">Satellite</button>
-    <button class="base-btn" id="btnOsm" onclick="setBase('osm')">Map</button>
+    <button class="base-btn" id="btnSat" onclick="setBase('sat')">Satellite</button>
+    <button class="base-btn active" id="btnOsm" onclick="setBase('osm')">Map</button>
   </div>
 </div>
 
@@ -245,7 +288,7 @@ function kmlCorners(n, s, e, w, rotDeg) {
 }
 
 // ── Map ──────────────────────────────────────────────────────────────────────
-var map = L.map('map', { zoomControl: false }).setView([54.09855, -4.63524], 19);
+var map = L.map('map', { zoomControl: false, maxZoom: 22 }).setView([54.09855, -4.63524], 19);
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
 var satellite = L.tileLayer(
@@ -254,9 +297,9 @@ var satellite = L.tileLayer(
 );
 var osm = L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-  { attribution: '&copy; OpenStreetMap contributors', maxZoom: 19 }
+  { attribution: '&copy; OpenStreetMap contributors', maxZoom: 22, maxNativeZoom: 19 }
 );
-satellite.addTo(map);
+osm.addTo(map);
 
 window.setBase = function (type) {
   if (type === 'sat') { map.removeLayer(osm); satellite.addTo(map); }
@@ -302,6 +345,23 @@ LAYERS.forEach(function (d) {
     lyr.setOpacity(this.value / 100);
     document.getElementById('pct-' + d.id).textContent = this.value + '%';
   });
+});
+
+// ── Mobile panel toggle ───────────────────────────────────────────────────────
+var panelToggle = document.getElementById('panelToggle');
+var layerPanel  = document.getElementById('layerPanel');
+if (panelToggle) {
+  panelToggle.addEventListener('click', function () {
+    var open = layerPanel.classList.toggle('open');
+    panelToggle.innerHTML = open ? '&#10005;&thinsp; Close' : '&#9776;&thinsp; Overlays';
+  });
+}
+// Tapping the map closes the panel on mobile
+map.on('click', function () {
+  if (window.innerWidth <= 680 && layerPanel.classList.contains('open')) {
+    layerPanel.classList.remove('open');
+    panelToggle.innerHTML = '&#9776;&thinsp; Overlays';
+  }
 });
 
 })();
