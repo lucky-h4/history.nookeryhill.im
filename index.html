@@ -295,13 +295,13 @@ a:hover { text-decoration-color: #7a3527; }
   -webkit-hyphens: auto;
 }
 
-/* Drop cap on first paragraph of each chapter */
-.chapter > p:first-of-type::first-letter {
+/* Drop cap on first text paragraph of each chapter (after the h3 subtitle, not the chapter-number label) */
+.chapter > h3 + p::first-letter {
   font-family: "Cormorant Garamond", serif;
   font-size: 4.5em;
   font-weight: 600;
   float: left;
-  line-height: 0.85;
+  line-height: 0.7;
   margin: 0.05em 0.08em 0 0;
   color: #7a3527;
 }
