@@ -360,12 +360,17 @@ LAYERS.forEach(function (d) {
 // ── Mobile panel toggle ───────────────────────────────────────────────────────
 var panelToggle = document.getElementById('panelToggle');
 var layerPanel  = document.getElementById('layerPanel');
-if (panelToggle) {
-  panelToggle.addEventListener('click', function () {
-    var open = layerPanel.classList.toggle('open');
-    panelToggle.innerHTML = open ? '&#10005;&thinsp; Close' : '&#9776;&thinsp; Overlays';
-  });
-}
+
+// Stop Leaflet consuming touch/click events on our UI elements
+L.DomEvent.disableClickPropagation(panelToggle);
+L.DomEvent.disableClickPropagation(layerPanel);
+L.DomEvent.disableClickPropagation(document.querySelector('.base-switcher'));
+
+panelToggle.addEventListener('click', function () {
+  var open = layerPanel.classList.toggle('open');
+  panelToggle.innerHTML = open ? '&#10005;&thinsp; Close' : '&#9776;&thinsp; Overlays';
+});
+
 // Tapping the map closes the panel on mobile
 map.on('click', function () {
   if (window.innerWidth <= 680 && layerPanel.classList.contains('open')) {
