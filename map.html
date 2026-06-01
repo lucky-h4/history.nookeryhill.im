@@ -105,7 +105,7 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 11px;
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- Leaflet.ImageOverlay.Rotated — inlined from github.com/IvanSanchez/Leaflet.ImageOverlay.Rotated -->
+<!-- Leaflet.ImageOverlay.Rotated — fixed: nested divs prevent setPosition/transform conflict -->
 <script>
 L.ImageOverlay.Rotated = L.ImageOverlay.extend({
   initialize: function (image, topleft, topright, bottomleft, options) {
@@ -115,57 +115,78 @@ L.ImageOverlay.Rotated = L.ImageOverlay.extend({
     this._bottomLeft = L.latLng(bottomleft);
     L.setOptions(this, options);
   },
+
   onAdd: function (map) {
-    if (!this._image) { this._initImage(); if (this.options.opacity < 1) { this._updateOpacity(); } }
-    if (this.options.interactive) { L.DomUtil.addClass(this._rawImage, 'leaflet-interactive'); this.addInteractiveTarget(this._rawImage); }
+    if (!this._image) { this._initImage(); }
+    this._image.style.opacity = this.options.opacity || 1;
+    if (this.options.interactive) {
+      L.DomUtil.addClass(this._rawImage, 'leaflet-interactive');
+      this.addInteractiveTarget(this._rawImage);
+    }
     map.on('zoomend zoommove', this._reset, this);
     this.getPane().appendChild(this._image);
     this._reset();
   },
+
   onRemove: function (map) {
     L.DomUtil.remove(this._image);
     if (this.options.interactive) { this.removeInteractiveTarget(this._rawImage); }
     map.off('zoomend zoommove', this._reset, this);
   },
+
   setOpacity: function (opacity) {
     this.options.opacity = opacity;
     if (this._image) { this._image.style.opacity = opacity; }
     return this;
   },
+
   _initImage: function () {
+    // Outer div: Leaflet positions this via setPosition() — translation only, no rotation.
+    // Keeping them separate stops _reset() overwriting the translate with the rotate.
+    this._image = L.DomUtil.create('div',
+      'leaflet-image-layer ' + (this._zoomAnimated ? 'leaflet-zoom-animated' : ''));
+    this._image.style.position = 'absolute';
+
+    // Inner div: rotation + skew live here.
+    this._inner = L.DomUtil.create('div');
+    this._inner.style.transformOrigin = '0 0';
+    this._image.appendChild(this._inner);
+
+    // Image fills the inner div.
     var img = this._rawImage = L.DomUtil.create('img');
-    L.DomUtil.addClass(img, 'leaflet-image-layer');
-    if (this._zoomAnimated) { L.DomUtil.addClass(img, 'leaflet-zoom-animated'); }
     img.onselectstart = L.Util.falseFn;
     img.onmousemove  = L.Util.falseFn;
     img.onload  = L.bind(this.fire, this, 'load');
     img.onerror = L.bind(this.fire, this, 'error');
-    img.src = this._url;
-    this._image = L.DomUtil.create('div', 'leaflet-image-layer ' + (this._zoomAnimated ? 'leaflet-zoom-animated' : ''));
-    this._image.appendChild(img);
-    this._image.style.opacity = this.options.opacity || 1;
+    img.src     = this._url;
+    img.style.width  = '100%';
+    img.style.height = '100%';
+    img.style.display = 'block';
+    this._inner.appendChild(img);
   },
+
   _reset: function () {
     var tl = this._map.latLngToLayerPoint(this._topLeft);
     var tr = this._map.latLngToLayerPoint(this._topRight);
     var bl = this._map.latLngToLayerPoint(this._bottomLeft);
-    var p = this._image;
-    var wv = tr.subtract(tl);
-    var hv = bl.subtract(tl);
+
+    // Outer div: translation only — Leaflet tracks _leaflet_pos for pan compensation.
+    L.DomUtil.setPosition(this._image, tl);
+
+    // Inner div: rotation + skew — separate element so it never overwrites the translate above.
+    var wv    = tr.subtract(tl);
+    var hv    = bl.subtract(tl);
     var angle = Math.atan2(wv.y, wv.x);
     var skewX = Math.atan2(-hv.x, hv.y);
-    var scaleX = Math.sqrt(wv.x*wv.x + wv.y*wv.y);
-    var scaleY = Math.sqrt(hv.x*hv.x + hv.y*hv.y);
-    L.DomUtil.setPosition(p, tl);
-    p.style.width  = scaleX + 'px';
-    p.style.height = scaleY + 'px';
-    p.style.transformOrigin = '0 0';
-    p.style.transform = 'rotate(' + angle + 'rad) skewX(' + skewX + 'rad)';
-    var img = this._rawImage;
-    img.style.width  = '100%';
-    img.style.height = '100%';
+    var sX    = Math.sqrt(wv.x * wv.x + wv.y * wv.y);
+    var sY    = Math.sqrt(hv.x * hv.x + hv.y * hv.y);
+
+    this._inner.style.width     = sX + 'px';
+    this._inner.style.height    = sY + 'px';
+    this._inner.style.transform = 'rotate(' + angle + 'rad) skewX(' + skewX + 'rad)';
   }
 });
+
 L.imageOverlay.rotated = function (imgSrc, tl, tr, bl, opts) {
   return new L.ImageOverlay.Rotated(imgSrc, tl, tr, bl, opts);
 };
