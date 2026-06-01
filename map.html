@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Historical Map Overlays — Nookery Hill, Ballasalla</title>
-<meta name="description" content="Historical plans and surveys of Nookery Hill, Abbey Road, Ballasalla, overlaid on the modern satellite view — 1904 to 2015.">
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,9 +13,8 @@
 
 <style>
 *, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; font-family: "EB Garamond", Georgia, "Times New Roman", serif; color: #2c2419; background: #2c2419; }
+html, body { margin: 0; padding: 0; font-family: "EB Garamond", Georgia, serif; background: #2c2419; color: #2c2419; }
 
-/* ── Header ─────────────────────────────────────────────────── */
 .map-header {
   position: fixed; top: 0; left: 0; right: 0; height: 52px;
   background: #2c2419; color: #f9f6ef;
@@ -27,139 +25,77 @@ html, body { margin: 0; padding: 0; font-family: "EB Garamond", Georgia, "Times 
 .map-header h1 {
   font-family: "Cormorant Garamond", serif; font-size: 1rem; font-weight: 600;
   letter-spacing: 0.04em; margin: 0; flex: 1; text-align: center;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  color: #e4dac4;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #e4dac4;
 }
-.hdr-link {
-  color: #c8b89a; text-decoration: none; font-size: 0.85rem;
-  white-space: nowrap; transition: color 0.15s; letter-spacing: 0.02em;
-}
+.hdr-link { color: #c8b89a; text-decoration: none; font-size: 0.85rem; white-space: nowrap; transition: color 0.15s; }
 .hdr-link:hover { color: #f9f6ef; }
 
-/* ── Map ─────────────────────────────────────────────────────── */
-#map {
-  position: relative; height: calc(100vh - 52px); margin-top: 52px; z-index: 1;
-}
+#map { position: relative; height: calc(100vh - 52px); margin-top: 52px; }
 
-/* ── Layer panel ─────────────────────────────────────────────── */
+/* Layer panel */
 .layer-panel {
-  position: absolute; top: 10px; left: 10px;
-  width: 230px; max-height: calc(100% - 60px); overflow-y: auto;
-  background: rgba(30, 24, 16, 0.93); backdrop-filter: blur(6px);
+  position: absolute; top: 10px; left: 10px; width: 232px;
+  max-height: calc(100% - 60px); overflow-y: auto;
+  background: rgba(28, 22, 14, 0.94); backdrop-filter: blur(6px);
   border-radius: 6px; color: #f3ede0; z-index: 500;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
 }
 .layer-panel::-webkit-scrollbar { width: 4px; }
-.layer-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
-
+.layer-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
 .panel-title {
   font-family: "Cormorant Garamond", serif; font-size: 0.72rem;
   text-transform: uppercase; letter-spacing: 0.14em; color: #b8a98c;
-  padding: 0.6rem 0.8rem 0.45rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 0.6rem 0.85rem 0.45rem; border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.layer-row { padding: 0.45rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.layer-row { padding: 0.45rem 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .layer-row:last-child { border-bottom: none; }
-
-.layer-top { display: flex; align-items: center; gap: 0.45rem; cursor: pointer; }
+.layer-top { display: flex; align-items: center; gap: 0.45rem; }
 .layer-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-.layer-name { font-size: 0.88rem; line-height: 1.25; flex: 1; cursor: pointer; }
+.layer-name { font-size: 0.88rem; line-height: 1.25; flex: 1; cursor: pointer; user-select: none; }
 .layer-toggle {
-  appearance: none; -webkit-appearance: none;
+  -webkit-appearance: none; appearance: none;
   width: 15px; height: 15px; border: 1px solid rgba(255,255,255,0.35);
   border-radius: 3px; background: transparent; cursor: pointer; flex-shrink: 0;
   position: relative; transition: background 0.15s;
 }
 .layer-toggle:checked { background: #7a3527; border-color: #7a3527; }
-.layer-toggle:checked::after {
-  content: "✓"; position: absolute; top: -2px; left: 1px;
-  color: white; font-size: 11px; line-height: 1;
-}
-.layer-desc {
-  font-size: 0.72rem; color: #8a7d6a; font-style: italic;
-  margin: 0.15rem 0 0.3rem 1.3rem; line-height: 1.35;
-}
-.layer-opacity {
-  display: none; margin: 0.25rem 0 0.1rem 1.3rem;
-  align-items: center; gap: 0.4rem;
-}
+.layer-toggle:checked::after { content: "✓"; position: absolute; top: -2px; left: 1px; color: #fff; font-size: 11px; line-height: 1; }
+.layer-desc { font-size: 0.71rem; color: #7a6d5a; font-style: italic; margin: 0.15rem 0 0.3rem 1.3rem; line-height: 1.35; }
+.layer-opacity { display: none; margin: 0.2rem 0 0.1rem 1.3rem; align-items: center; gap: 0.4rem; }
 .layer-opacity.visible { display: flex; }
-.opacity-label { font-size: 0.68rem; color: #8a7d6a; width: 28px; text-align: right; flex-shrink: 0; }
-input[type=range] {
-  -webkit-appearance: none; flex: 1; height: 3px;
-  background: rgba(255,255,255,0.15); border-radius: 2px; outline: none;
-}
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 11px; height: 11px;
-  border-radius: 50%; background: #c8b89a; cursor: pointer;
-}
+.opacity-label { font-size: 0.68rem; color: #7a6d5a; width: 30px; text-align: right; flex-shrink: 0; }
+input[type=range] { -webkit-appearance: none; flex: 1; height: 3px; background: rgba(255,255,255,0.14); border-radius: 2px; outline: none; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 11px; height: 11px; border-radius: 50%; background: #c8b89a; cursor: pointer; }
 
-/* ── Base layer switcher ─────────────────────────────────────── */
+/* Base switcher */
 .base-switcher {
   position: absolute; bottom: 28px; right: 10px; z-index: 500;
-  background: rgba(30,24,16,0.9); border-radius: 6px;
+  background: rgba(28,22,14,0.92); border-radius: 6px;
   padding: 0.35rem 0.5rem; display: flex; gap: 0.4rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 .base-btn {
-  font-family: "EB Garamond", serif; font-size: 0.78rem;
-  color: #b8a98c; background: transparent;
-  border: 1px solid rgba(255,255,255,0.15); border-radius: 3px;
+  font-family: "EB Garamond", serif; font-size: 0.78rem; color: #b8a98c;
+  background: transparent; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px;
   padding: 0.18rem 0.5rem; cursor: pointer; transition: background 0.15s, color 0.15s;
 }
 .base-btn.active, .base-btn:hover { background: #7a3527; color: #f9f6ef; border-color: #7a3527; }
 
-/* ── Video section ───────────────────────────────────────────── */
-.video-section {
-  background: #1e1810; color: #f3ede0;
-  padding: 5rem 1.5rem 4rem;
-}
+/* Video section */
+.video-section { background: #1a1208; color: #f3ede0; padding: 5rem 1.5rem 4rem; }
 .video-inner { max-width: 860px; margin: 0 auto; text-align: center; }
-.video-section h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600;
-  margin: 0 0 0.5rem; color: #e4dac4; line-height: 1.1;
-}
-.video-section .sub {
-  font-style: italic; color: #8a7d6a; margin: 0 0 2.5rem;
-  font-size: 1.05rem; line-height: 1.5;
-}
-.video-section video {
-  width: 100%; border-radius: 6px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-  display: block; margin: 0 auto 2.5rem;
-}
-.ornament {
-  display: block; width: 60px; height: 1px;
-  background: #4a3c2a; margin: 0 auto 2.5rem; position: relative;
-}
-.ornament::before, .ornament::after {
-  content: ""; position: absolute; top: 50%;
-  width: 4px; height: 4px; background: #4a3c2a;
-  border-radius: 50%; transform: translateY(-50%);
-}
-.ornament::before { left: -8px; }
-.ornament::after { right: -8px; }
-
+.video-section h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 600; margin: 0 0 0.5rem; color: #e4dac4; }
+.video-section .sub { font-style: italic; color: #8a7d6a; margin: 0 0 2.5rem; font-size: 1.05rem; }
+.video-section video { width: 100%; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.5); display: block; margin: 0 auto 2.5rem; }
+.ornament { display: block; width: 60px; height: 1px; background: #3a2e1e; margin: 0 auto 2.5rem; position: relative; }
+.ornament::before, .ornament::after { content: ""; position: absolute; top: 50%; width: 4px; height: 4px; background: #3a2e1e; border-radius: 50%; transform: translateY(-50%); }
+.ornament::before { left: -8px; } .ornament::after { right: -8px; }
 .download-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.dl-btn {
-  font-family: "EB Garamond", serif; font-size: 0.95rem;
-  color: #b8a98c; text-decoration: none;
-  border: 1px solid rgba(184,169,140,0.3); border-radius: 4px;
-  padding: 0.5rem 1.3rem; transition: background 0.15s, color 0.15s;
-}
+.dl-btn { font-family: "EB Garamond", serif; font-size: 0.95rem; color: #b8a98c; text-decoration: none; border: 1px solid rgba(184,169,140,0.3); border-radius: 4px; padding: 0.5rem 1.3rem; transition: background 0.15s, color 0.15s; }
 .dl-btn:hover { background: rgba(184,169,140,0.1); color: #e4dac4; }
 
-/* ── Footer ──────────────────────────────────────────────────── */
-.map-footer {
-  background: #161008; color: #4a3c2a;
-  text-align: center; padding: 1.5rem;
-  font-size: 0.85rem; font-style: italic;
-  border-top: 1px solid rgba(255,255,255,0.04);
-}
-.map-footer a { color: #6a5b48; text-decoration: none; }
-.map-footer a:hover { color: #8a7d6a; }
-
-/* ── Leaflet tweaks ──────────────────────────────────────────── */
+.map-footer { background: #110d06; color: #3a2e1e; text-align: center; padding: 1.5rem; font-size: 0.85rem; font-style: italic; }
+.map-footer a { color: #5a4e3a; text-decoration: none; } .map-footer a:hover { color: #8a7d6a; }
 .leaflet-control-attribution { font-size: 0.65rem !important; }
 </style>
 </head>
@@ -197,97 +133,123 @@ input[type=range]::-webkit-slider-thumb {
 </section>
 
 <footer class="map-footer">
-  <p>A Path Through Time &mdash; Nookery Hill, Abbey Road, Ballasalla, Isle of Man &middot; <a href="index.html">Return to full history</a></p>
+  <p>A Path Through Time &mdash; Nookery Hill, Abbey Road, Ballasalla &middot; <a href="index.html">Return to full history</a></p>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leaflet-imageoverlay-rotated@0.2.0/L.ImageOverlay.Rotated.js"></script>
+
+<!-- Leaflet.ImageOverlay.Rotated — inlined from github.com/IvanSanchez/Leaflet.ImageOverlay.Rotated -->
+<script>
+L.ImageOverlay.Rotated = L.ImageOverlay.extend({
+  initialize: function (image, topleft, topright, bottomleft, options) {
+    if (typeof image === 'string') { this._url = image; } else { this._rawImage = image; }
+    this._topLeft    = L.latLng(topleft);
+    this._topRight   = L.latLng(topright);
+    this._bottomLeft = L.latLng(bottomleft);
+    L.setOptions(this, options);
+  },
+  onAdd: function (map) {
+    if (!this._image) { this._initImage(); if (this.options.opacity < 1) { this._updateOpacity(); } }
+    if (this.options.interactive) { L.DomUtil.addClass(this._rawImage, 'leaflet-interactive'); this.addInteractiveTarget(this._rawImage); }
+    map.on('zoomend zoommove', this._reset, this);
+    this.getPane().appendChild(this._image);
+    this._reset();
+  },
+  onRemove: function (map) {
+    L.DomUtil.remove(this._image);
+    if (this.options.interactive) { this.removeInteractiveTarget(this._rawImage); }
+    map.off('zoomend zoommove', this._reset, this);
+  },
+  setOpacity: function (opacity) {
+    this.options.opacity = opacity;
+    if (this._image) { this._image.style.opacity = opacity; }
+    return this;
+  },
+  _initImage: function () {
+    var img = this._rawImage = L.DomUtil.create('img');
+    L.DomUtil.addClass(img, 'leaflet-image-layer');
+    if (this._zoomAnimated) { L.DomUtil.addClass(img, 'leaflet-zoom-animated'); }
+    img.onselectstart = L.Util.falseFn;
+    img.onmousemove  = L.Util.falseFn;
+    img.onload  = L.bind(this.fire, this, 'load');
+    img.onerror = L.bind(this.fire, this, 'error');
+    img.src = this._url;
+    this._image = L.DomUtil.create('div', 'leaflet-image-layer ' + (this._zoomAnimated ? 'leaflet-zoom-animated' : ''));
+    this._image.appendChild(img);
+    this._image.style.opacity = this.options.opacity || 1;
+  },
+  _reset: function () {
+    var tl = this._map.latLngToLayerPoint(this._topLeft);
+    var tr = this._map.latLngToLayerPoint(this._topRight);
+    var bl = this._map.latLngToLayerPoint(this._bottomLeft);
+    var p = this._image;
+    var wv = tr.subtract(tl);
+    var hv = bl.subtract(tl);
+    var angle = Math.atan2(wv.y, wv.x);
+    var skewX = Math.atan2(-hv.x, hv.y);
+    var scaleX = Math.sqrt(wv.x*wv.x + wv.y*wv.y);
+    var scaleY = Math.sqrt(hv.x*hv.x + hv.y*hv.y);
+    L.DomUtil.setPosition(p, tl);
+    p.style.width  = scaleX + 'px';
+    p.style.height = scaleY + 'px';
+    p.style.transformOrigin = '0 0';
+    p.style.transform = 'rotate(' + angle + 'rad) skewX(' + skewX + 'rad)';
+    var img = this._rawImage;
+    img.style.width  = '100%';
+    img.style.height = '100%';
+  }
+});
+L.imageOverlay.rotated = function (imgSrc, tl, tr, bl, opts) {
+  return new L.ImageOverlay.Rotated(imgSrc, tl, tr, bl, opts);
+};
+</script>
+
 <script>
 (function () {
 
-// ── Overlay data extracted from KMZ ──────────────────────────────────────────
 var LAYERS = [
-  {
-    id: '1904', name: '1904 Cubbon Plan', year: '1904',
-    img: 'map/1904-cubbon-plan.png',
-    desc: 'Footpath petition — the three plots and diverted right-of-way',
-    n: 54.09870041791179, s: 54.09806375333666,
-    e: -4.633768306124997, w: -4.636919147160638,
-    rot: 82.66449737548827, color: '#c8853a'
-  },
-  {
-    id: '1938p', name: '1938 Purchase', year: '1938',
-    img: 'map/1938-purchase-simcocks.png',
-    desc: 'Conveyance to Lillian Maude Simcocks — deed Jun 1938 / 122',
-    n: 54.09870448930612, s: 54.098365600001,
-    e: -4.634925185147396, w: -4.635915245720921,
-    rot: 82.77081298828126, color: '#5b8c42'
-  },
-  {
-    id: '1938d', name: '1938 Plans', year: '1938',
-    img: 'map/1938-plans-simcocks.png',
-    desc: 'Lomas &amp; Barrett villa drawings — PA-1439',
-    n: 54.09866945466749, s: 54.0983270141399,
-    e: -4.634922354827178, w: -4.635873911385136,
-    rot: 79.72576141357423, color: '#4169e1'
-  },
-  {
-    id: '1948', name: '1948 Extension', year: '1948',
-    img: 'map/1948-purchase-simcocks.png',
-    desc: '100 sq yd extension plot — deed May 1948 / 239',
-    n: 54.09874105235551, s: 54.09837742402133,
-    e: -4.634766395274125, w: -4.636015457424516,
-    rot: 77.36199188232422, color: '#9400d3'
-  },
-  {
-    id: '1963', name: '1963 Conveyance', year: '1963',
-    img: 'map/1963-conveyance.png',
-    desc: 'Conveyance to William Montague Simcocks — deed Oct 1963 / 290',
-    n: 54.0987757171431, s: 54.09833460712065,
-    e: -4.634752002088419, w: -4.636093069905441,
-    rot: 78.35979461669922, color: '#c43030'
-  },
-  {
-    id: '1985', name: '1985 Floor Plan', year: '1985',
-    img: 'map/1985-first-floor.png',
-    desc: 'L. Phillips &amp; Associates — PA 85/216, approved 22 March 1985',
-    n: 54.09875226839745, s: 54.09863041139023,
-    e: -4.635193595166687, w: -4.635660183610469,
-    rot: 62.73050689697266, color: '#e08020'
-  },
-  {
-    id: '1996', name: '1996 Purchase', year: '1996',
-    img: 'map/1996-purchase-milligan.png',
-    desc: 'Dolge → Milligan — deed May 1996 / 02524',
-    n: 54.09875683785238, s: 54.09839800719089,
-    e: -4.634843773037202, w: -4.635827281138413,
-    rot: 77.13861846923828, color: '#20b2aa'
-  },
-  {
-    id: '2015', name: '2015 Registration', year: '2015',
-    img: 'map/2015-land-registration.png',
-    desc: 'First registered title — 43-01219, 7 October 2015',
-    n: 54.09904679849662, s: 54.09827594425696,
-    e: -4.634877499990194, w: -4.635792894676105,
-    rot: 2.85320520401001, color: '#dc143c'
-  }
+  { id:'1904',  name:'1904 Cubbon Plan',   color:'#c8853a',
+    img:'map/1904-cubbon-plan.png',
+    desc:'Footpath petition — the three plots and diverted right-of-way',
+    n:54.09870041791179,  s:54.09806375333666, e:-4.633768306124997, w:-4.636919147160638, rot:82.66449737548827 },
+  { id:'1938p', name:'1938 Purchase',       color:'#5b8c42',
+    img:'map/1938-purchase-simcocks.png',
+    desc:'Conveyance to Lillian Maude Simcocks — deed Jun 1938/122',
+    n:54.09870448930612,  s:54.098365600001,   e:-4.634925185147396, w:-4.635915245720921, rot:82.77081298828126 },
+  { id:'1938d', name:'1938 Plans',          color:'#4169e1',
+    img:'map/1938-plans-simcocks.png',
+    desc:'Lomas &amp; Barrett villa drawings — PA-1439',
+    n:54.09866945466749,  s:54.0983270141399,  e:-4.634922354827178, w:-4.635873911385136, rot:79.72576141357423 },
+  { id:'1948',  name:'1948 Extension',      color:'#9400d3',
+    img:'map/1948-purchase-simcocks.png',
+    desc:'100 sq yd extension plot — deed May 1948/239',
+    n:54.09874105235551,  s:54.09837742402133, e:-4.634766395274125, w:-4.636015457424516, rot:77.36199188232422 },
+  { id:'1963',  name:'1963 Conveyance',     color:'#c43030',
+    img:'map/1963-conveyance.png',
+    desc:'Conveyance to William Montague Simcocks — deed Oct 1963/290',
+    n:54.0987757171431,   s:54.09833460712065, e:-4.634752002088419, w:-4.636093069905441, rot:78.35979461669922 },
+  { id:'1985',  name:'1985 Floor Plan',     color:'#e08020',
+    img:'map/1985-first-floor.png',
+    desc:'L. Phillips &amp; Associates — PA 85/216, approved 22 March 1985',
+    n:54.09875226839745,  s:54.09863041139023, e:-4.635193595166687, w:-4.635660183610469, rot:62.73050689697266 },
+  { id:'1996',  name:'1996 Purchase',       color:'#20b2aa',
+    img:'map/1996-purchase-milligan.png',
+    desc:'Dolge &#8594; Milligan — deed May 1996/02524',
+    n:54.09875683785238,  s:54.09839800719089, e:-4.634843773037202, w:-4.635827281138413, rot:77.13861846923828 },
+  { id:'2015',  name:'2015 Registration',   color:'#dc143c',
+    img:'map/2015-land-registration.png',
+    desc:'First registered title — 43-01219, 7 October 2015',
+    n:54.09904679849662,  s:54.09827594425696, e:-4.634877499990194, w:-4.635792894676105, rot:2.85320520401001 }
 ];
 
-// ── KML LatLonBox + rotation → 3 corner L.LatLng points ──────────────────────
-// KML rotation is counterclockwise from north, applied around the box centre.
+// KML LatLonBox + CCW rotation → topLeft, topRight, bottomLeft corner LatLngs
 function kmlCorners(n, s, e, w, rotDeg) {
-  var cLat = (n + s) / 2;
-  var cLon = (e + w) / 2;
-  var mLat = 111319;
-  var mLon = mLat * Math.cos(cLat * Math.PI / 180);
-  var halfH = (n - s) / 2 * mLat;
-  var halfW = (e - w) / 2 * mLon;
-  var rad = rotDeg * Math.PI / 180;
-  var c = Math.cos(rad), s2 = Math.sin(rad);
+  var cLat = (n + s) / 2, cLon = (e + w) / 2;
+  var mLat = 111319, mLon = mLat * Math.cos(cLat * Math.PI / 180);
+  var halfH = (n - s) / 2 * mLat, halfW = (e - w) / 2 * mLon;
+  var rad = rotDeg * Math.PI / 180, c = Math.cos(rad), s2 = Math.sin(rad);
   function rot(x, y) { return { x: x*c - y*s2, y: x*s2 + y*c }; }
-  var tl = rot(-halfW,  halfH);
-  var tr = rot( halfW,  halfH);
-  var bl = rot(-halfW, -halfH);
+  var tl = rot(-halfW,  halfH), tr = rot(halfW,  halfH), bl = rot(-halfW, -halfH);
   return {
     tl: L.latLng(cLat + tl.y/mLat, cLon + tl.x/mLon),
     tr: L.latLng(cLat + tr.y/mLat, cLon + tr.x/mLon),
@@ -295,35 +257,33 @@ function kmlCorners(n, s, e, w, rotDeg) {
   };
 }
 
-// ── Initialise map ────────────────────────────────────────────────────────────
+// ── Map ──────────────────────────────────────────────────────────────────────
 var map = L.map('map', { zoomControl: false }).setView([54.09855, -4.63524], 19);
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
 var satellite = L.tileLayer(
   'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-  { attribution: 'Imagery &copy; <a href="https://www.esri.com">Esri</a>', maxZoom: 20, maxNativeZoom: 19 }
+  { attribution: 'Imagery &copy; Esri', maxZoom: 20, maxNativeZoom: 19 }
 );
 var osm = L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-  { attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors', maxZoom: 19 }
+  { attribution: '&copy; OpenStreetMap contributors', maxZoom: 19 }
 );
 satellite.addTo(map);
 
 window.setBase = function (type) {
-  if (type === 'sat') { map.removeLayer(osm);       satellite.addTo(map); }
-  else               { map.removeLayer(satellite); osm.addTo(map); }
+  if (type === 'sat') { map.removeLayer(osm); satellite.addTo(map); }
+  else { map.removeLayer(satellite); osm.addTo(map); }
   document.getElementById('btnSat').classList.toggle('active', type === 'sat');
   document.getElementById('btnOsm').classList.toggle('active', type === 'osm');
 };
 
-// ── Build layer panel and overlays ────────────────────────────────────────────
-var panel = document.getElementById('layerPanel');
+// ── Build panel rows first, then wire up Leaflet overlays ─────────────────────
+var panel  = document.getElementById('layerPanel');
+var lyrMap = {};  // id → Leaflet layer
 
 LAYERS.forEach(function (d) {
-  var corners = kmlCorners(d.n, d.s, d.e, d.w, d.rot);
-  var lyr = L.imageOverlay.rotated(d.img, corners.tl, corners.tr, corners.bl, { opacity: 0.75, interactive: false });
-
-  // Panel row
+  // 1. DOM row (no Leaflet dependency)
   var row = document.createElement('div');
   row.className = 'layer-row';
   row.innerHTML =
@@ -339,18 +299,18 @@ LAYERS.forEach(function (d) {
     '</div>';
   panel.appendChild(row);
 
-  // Toggle checkbox
+  // 2. Leaflet layer
+  var corners = kmlCorners(d.n, d.s, d.e, d.w, d.rot);
+  var lyr = L.imageOverlay.rotated(d.img, corners.tl, corners.tr, corners.bl, { opacity: 0.75 });
+  lyrMap[d.id] = lyr;
+
+  // 3. Toggle
   document.getElementById('chk-' + d.id).addEventListener('change', function () {
-    if (this.checked) {
-      lyr.addTo(map);
-      document.getElementById('op-' + d.id).classList.add('visible');
-    } else {
-      map.removeLayer(lyr);
-      document.getElementById('op-' + d.id).classList.remove('visible');
-    }
+    if (this.checked) { lyr.addTo(map); document.getElementById('op-' + d.id).classList.add('visible'); }
+    else              { map.removeLayer(lyr); document.getElementById('op-' + d.id).classList.remove('visible'); }
   });
 
-  // Opacity slider
+  // 4. Opacity slider
   document.getElementById('rng-' + d.id).addEventListener('input', function () {
     lyr.setOpacity(this.value / 100);
     document.getElementById('pct-' + d.id).textContent = this.value + '%';
