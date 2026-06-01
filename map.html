@@ -173,17 +173,16 @@ L.ImageOverlay.Rotated = L.ImageOverlay.extend({
     // Outer div: translation only — Leaflet tracks _leaflet_pos for pan compensation.
     L.DomUtil.setPosition(this._image, tl);
 
-    // Inner div: rotation + skew — separate element so it never overwrites the translate above.
+    // Inner div: pure rotation only (no skewX — we always have a rotated rectangle, skew introduces drift).
     var wv    = tr.subtract(tl);
     var hv    = bl.subtract(tl);
     var angle = Math.atan2(wv.y, wv.x);
-    var skewX = Math.atan2(-hv.x, hv.y);
     var sX    = Math.sqrt(wv.x * wv.x + wv.y * wv.y);
     var sY    = Math.sqrt(hv.x * hv.x + hv.y * hv.y);
 
     this._inner.style.width     = sX + 'px';
     this._inner.style.height    = sY + 'px';
-    this._inner.style.transform = 'rotate(' + angle + 'rad) skewX(' + skewX + 'rad)';
+    this._inner.style.transform = 'rotate(' + angle + 'rad)';
   }
 });
 
@@ -227,7 +226,7 @@ var LAYERS = [
   { id:'2015',  name:'2015 Registration',   color:'#dc143c',
     img:'map/2015-land-registration.png',
     desc:'First registered title — 43-01219, 7 October 2015',
-    n:54.09904679849662,  s:54.09827594425696, e:-4.634831569990194, w:-4.635746964676105, rot:5.0 }
+    n:54.09904679849662,  s:54.09827594425696, e:-4.634877499990194, w:-4.635792894676105, rot:2.85320520401001 }
 ];
 
 // KML LatLonBox + CCW rotation → topLeft, topRight, bottomLeft corner LatLngs
