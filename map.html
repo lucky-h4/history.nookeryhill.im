@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historical Map Overlays — Nookery Hill, Ballasalla</title>
+<meta name="description" content="Historical plans and surveys of Nookery Hill, Abbey Road, Ballasalla, overlaid on the modern satellite view — 1904 to 2015.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: "EB Garamond", Georgia, "Times New Roman", serif; color: #2c2419; background: #2c2419; }
+
+/* ── Header ─────────────────────────────────────────────────── */
+.map-header {
+  position: fixed; top: 0; left: 0; right: 0; height: 52px;
+  background: #2c2419; color: #f9f6ef;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 1.2rem; z-index: 1000; gap: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.map-header h1 {
+  font-family: "Cormorant Garamond", serif; font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.04em; margin: 0; flex: 1; text-align: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  color: #e4dac4;
+}
+.hdr-link {
+  color: #c8b89a; text-decoration: none; font-size: 0.85rem;
+  white-space: nowrap; transition: color 0.15s; letter-spacing: 0.02em;
+}
+.hdr-link:hover { color: #f9f6ef; }
+
+/* ── Map ─────────────────────────────────────────────────────── */
+#map {
+  position: relative; height: calc(100vh - 52px); margin-top: 52px; z-index: 1;
+}
+
+/* ── Layer panel ─────────────────────────────────────────────── */
+.layer-panel {
+  position: absolute; top: 10px; left: 10px;
+  width: 230px; max-height: calc(100% - 60px); overflow-y: auto;
+  background: rgba(30, 24, 16, 0.93); backdrop-filter: blur(6px);
+  border-radius: 6px; color: #f3ede0; z-index: 500;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+}
+.layer-panel::-webkit-scrollbar { width: 4px; }
+.layer-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+
+.panel-title {
+  font-family: "Cormorant Garamond", serif; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.14em; color: #b8a98c;
+  padding: 0.6rem 0.8rem 0.45rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.layer-row { padding: 0.45rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.layer-row:last-child { border-bottom: none; }
+
+.layer-top { display: flex; align-items: center; gap: 0.45rem; cursor: pointer; }
+.layer-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.layer-name { font-size: 0.88rem; line-height: 1.25; flex: 1; cursor: pointer; }
+.layer-toggle {
+  appearance: none; -webkit-appearance: none;
+  width: 15px; height: 15px; border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 3px; background: transparent; cursor: pointer; flex-shrink: 0;
+  position: relative; transition: background 0.15s;
+}
+.layer-toggle:checked { background: #7a3527; border-color: #7a3527; }
+.layer-toggle:checked::after {
+  content: "✓"; position: absolute; top: -2px; left: 1px;
+  color: white; font-size: 11px; line-height: 1;
+}
+.layer-desc {
+  font-size: 0.72rem; color: #8a7d6a; font-style: italic;
+  margin: 0.15rem 0 0.3rem 1.3rem; line-height: 1.35;
+}
+.layer-opacity {
+  display: none; margin: 0.25rem 0 0.1rem 1.3rem;
+  align-items: center; gap: 0.4rem;
+}
+.layer-opacity.visible { display: flex; }
+.opacity-label { font-size: 0.68rem; color: #8a7d6a; width: 28px; text-align: right; flex-shrink: 0; }
+input[type=range] {
+  -webkit-appearance: none; flex: 1; height: 3px;
+  background: rgba(255,255,255,0.15); border-radius: 2px; outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 11px; height: 11px;
+  border-radius: 50%; background: #c8b89a; cursor: pointer;
+}
+
+/* ── Base layer switcher ─────────────────────────────────────── */
+.base-switcher {
+  position: absolute; bottom: 28px; right: 10px; z-index: 500;
+  background: rgba(30,24,16,0.9); border-radius: 6px;
+  padding: 0.35rem 0.5rem; display: flex; gap: 0.4rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.base-btn {
+  font-family: "EB Garamond", serif; font-size: 0.78rem;
+  color: #b8a98c; background: transparent;
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 3px;
+  padding: 0.18rem 0.5rem; cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.base-btn.active, .base-btn:hover { background: #7a3527; color: #f9f6ef; border-color: #7a3527; }
+
+/* ── Video section ───────────────────────────────────────────── */
+.video-section {
+  background: #1e1810; color: #f3ede0;
+  padding: 5rem 1.5rem 4rem;
+}
+.video-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+.video-section h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600;
+  margin: 0 0 0.5rem; color: #e4dac4; line-height: 1.1;
+}
+.video-section .sub {
+  font-style: italic; color: #8a7d6a; margin: 0 0 2.5rem;
+  font-size: 1.05rem; line-height: 1.5;
+}
+.video-section video {
+  width: 100%; border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  display: block; margin: 0 auto 2.5rem;
+}
+.ornament {
+  display: block; width: 60px; height: 1px;
+  background: #4a3c2a; margin: 0 auto 2.5rem; position: relative;
+}
+.ornament::before, .ornament::after {
+  content: ""; position: absolute; top: 50%;
+  width: 4px; height: 4px; background: #4a3c2a;
+  border-radius: 50%; transform: translateY(-50%);
+}
+.ornament::before { left: -8px; }
+.ornament::after { right: -8px; }
+
+.download-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.dl-btn {
+  font-family: "EB Garamond", serif; font-size: 0.95rem;
+  color: #b8a98c; text-decoration: none;
+  border: 1px solid rgba(184,169,140,0.3); border-radius: 4px;
+  padding: 0.5rem 1.3rem; transition: background 0.15s, color 0.15s;
+}
+.dl-btn:hover { background: rgba(184,169,140,0.1); color: #e4dac4; }
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.map-footer {
+  background: #161008; color: #4a3c2a;
+  text-align: center; padding: 1.5rem;
+  font-size: 0.85rem; font-style: italic;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.map-footer a { color: #6a5b48; text-decoration: none; }
+.map-footer a:hover { color: #8a7d6a; }
+
+/* ── Leaflet tweaks ──────────────────────────────────────────── */
+.leaflet-control-attribution { font-size: 0.65rem !important; }
+</style>
+</head>
+<body>
+
+<header class="map-header">
+  <a href="index.html" class="hdr-link">&#8592; A Path Through Time</a>
+  <h1>Historical Map Overlays &mdash; Nookery Hill, Ballasalla</h1>
+  <a href="map/nookery-hill-overlay.kmz" class="hdr-link" download>&#8595;&thinsp;KMZ</a>
+</header>
+
+<div id="map">
+  <div class="layer-panel" id="layerPanel">
+    <div class="panel-title">Overlays &mdash; tick to show</div>
+  </div>
+  <div class="base-switcher">
+    <button class="base-btn active" id="btnSat" onclick="setBase('sat')">Satellite</button>
+    <button class="base-btn" id="btnOsm" onclick="setBase('osm')">Map</button>
+  </div>
+</div>
+
+<section class="video-section">
+  <div class="video-inner">
+    <h2>A hundred and eleven years</h2>
+    <p class="sub">Historical plans and surveys overlaid on the modern site &mdash; 1904 to 2015.</p>
+    <span class="ornament" aria-hidden="true"></span>
+    <video autoplay muted loop playsinline>
+      <source src="map/nookery-hill-overlay.mp4" type="video/mp4">
+    </video>
+    <div class="download-row">
+      <a href="map/nookery-hill-overlay.kmz" class="dl-btn" download>&#8595; Download KMZ for Google Earth</a>
+      <a href="index.html" class="dl-btn">&#8592; Full History</a>
+    </div>
+  </div>
+</section>
+
+<footer class="map-footer">
+  <p>A Path Through Time &mdash; Nookery Hill, Abbey Road, Ballasalla, Isle of Man &middot; <a href="index.html">Return to full history</a></p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-imageoverlay-rotated@0.2.0/L.ImageOverlay.Rotated.js"></script>
+<script>
+(function () {
+
+// ── Overlay data extracted from KMZ ──────────────────────────────────────────
+var LAYERS = [
+  {
+    id: '1904', name: '1904 Cubbon Plan', year: '1904',
+    img: 'map/1904-cubbon-plan.png',
+    desc: 'Footpath petition — the three plots and diverted right-of-way',
+    n: 54.09870041791179, s: 54.09806375333666,
+    e: -4.633768306124997, w: -4.636919147160638,
+    rot: 82.66449737548827, color: '#c8853a'
+  },
+  {
+    id: '1938p', name: '1938 Purchase', year: '1938',
+    img: 'map/1938-purchase-simcocks.png',
+    desc: 'Conveyance to Lillian Maude Simcocks — deed Jun 1938 / 122',
+    n: 54.09870448930612, s: 54.098365600001,
+    e: -4.634925185147396, w: -4.635915245720921,
+    rot: 82.77081298828126, color: '#5b8c42'
+  },
+  {
+    id: '1938d', name: '1938 Plans', year: '1938',
+    img: 'map/1938-plans-simcocks.png',
+    desc: 'Lomas &amp; Barrett villa drawings — PA-1439',
+    n: 54.09866945466749, s: 54.0983270141399,
+    e: -4.634922354827178, w: -4.635873911385136,
+    rot: 79.72576141357423, color: '#4169e1'
+  },
+  {
+    id: '1948', name: '1948 Extension', year: '1948',
+    img: 'map/1948-purchase-simcocks.png',
+    desc: '100 sq yd extension plot — deed May 1948 / 239',
+    n: 54.09874105235551, s: 54.09837742402133,
+    e: -4.634766395274125, w: -4.636015457424516,
+    rot: 77.36199188232422, color: '#9400d3'
+  },
+  {
+    id: '1963', name: '1963 Conveyance', year: '1963',
+    img: 'map/1963-conveyance.png',
+    desc: 'Conveyance to William Montague Simcocks — deed Oct 1963 / 290',
+    n: 54.0987757171431, s: 54.09833460712065,
+    e: -4.634752002088419, w: -4.636093069905441,
+    rot: 78.35979461669922, color: '#c43030'
+  },
+  {
+    id: '1985', name: '1985 Floor Plan', year: '1985',
+    img: 'map/1985-first-floor.png',
+    desc: 'L. Phillips &amp; Associates — PA 85/216, approved 22 March 1985',
+    n: 54.09875226839745, s: 54.09863041139023,
+    e: -4.635193595166687, w: -4.635660183610469,
+    rot: 62.73050689697266, color: '#e08020'
+  },
+  {
+    id: '1996', name: '1996 Purchase', year: '1996',
+    img: 'map/1996-purchase-milligan.png',
+    desc: 'Dolge → Milligan — deed May 1996 / 02524',
+    n: 54.09875683785238, s: 54.09839800719089,
+    e: -4.634843773037202, w: -4.635827281138413,
+    rot: 77.13861846923828, color: '#20b2aa'
+  },
+  {
+    id: '2015', name: '2015 Registration', year: '2015',
+    img: 'map/2015-land-registration.png',
+    desc: 'First registered title — 43-01219, 7 October 2015',
+    n: 54.09904679849662, s: 54.09827594425696,
+    e: -4.634877499990194, w: -4.635792894676105,
+    rot: 2.85320520401001, color: '#dc143c'
+  }
+];
+
+// ── KML LatLonBox + rotation → 3 corner L.LatLng points ──────────────────────
+// KML rotation is counterclockwise from north, applied around the box centre.
+function kmlCorners(n, s, e, w, rotDeg) {
+  var cLat = (n + s) / 2;
+  var cLon = (e + w) / 2;
+  var mLat = 111319;
+  var mLon = mLat * Math.cos(cLat * Math.PI / 180);
+  var halfH = (n - s) / 2 * mLat;
+  var halfW = (e - w) / 2 * mLon;
+  var rad = rotDeg * Math.PI / 180;
+  var c = Math.cos(rad), s2 = Math.sin(rad);
+  function rot(x, y) { return { x: x*c - y*s2, y: x*s2 + y*c }; }
+  var tl = rot(-halfW,  halfH);
+  var tr = rot( halfW,  halfH);
+  var bl = rot(-halfW, -halfH);
+  return {
+    tl: L.latLng(cLat + tl.y/mLat, cLon + tl.x/mLon),
+    tr: L.latLng(cLat + tr.y/mLat, cLon + tr.x/mLon),
+    bl: L.latLng(cLat + bl.y/mLat, cLon + bl.x/mLon)
+  };
+}
+
+// ── Initialise map ────────────────────────────────────────────────────────────
+var map = L.map('map', { zoomControl: false }).setView([54.09855, -4.63524], 19);
+L.control.zoom({ position: 'bottomleft' }).addTo(map);
+
+var satellite = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  { attribution: 'Imagery &copy; <a href="https://www.esri.com">Esri</a>', maxZoom: 20, maxNativeZoom: 19 }
+);
+var osm = L.tileLayer(
+  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  { attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors', maxZoom: 19 }
+);
+satellite.addTo(map);
+
+window.setBase = function (type) {
+  if (type === 'sat') { map.removeLayer(osm);       satellite.addTo(map); }
+  else               { map.removeLayer(satellite); osm.addTo(map); }
+  document.getElementById('btnSat').classList.toggle('active', type === 'sat');
+  document.getElementById('btnOsm').classList.toggle('active', type === 'osm');
+};
+
+// ── Build layer panel and overlays ────────────────────────────────────────────
+var panel = document.getElementById('layerPanel');
+
+LAYERS.forEach(function (d) {
+  var corners = kmlCorners(d.n, d.s, d.e, d.w, d.rot);
+  var lyr = L.imageOverlay.rotated(d.img, corners.tl, corners.tr, corners.bl, { opacity: 0.75, interactive: false });
+
+  // Panel row
+  var row = document.createElement('div');
+  row.className = 'layer-row';
+  row.innerHTML =
+    '<div class="layer-top">' +
+      '<input type="checkbox" class="layer-toggle" id="chk-' + d.id + '">' +
+      '<span class="layer-dot" style="background:' + d.color + '"></span>' +
+      '<label class="layer-name" for="chk-' + d.id + '">' + d.name + '</label>' +
+    '</div>' +
+    '<div class="layer-desc">' + d.desc + '</div>' +
+    '<div class="layer-opacity" id="op-' + d.id + '">' +
+      '<input type="range" min="0" max="100" value="75" id="rng-' + d.id + '">' +
+      '<span class="opacity-label" id="pct-' + d.id + '">75%</span>' +
+    '</div>';
+  panel.appendChild(row);
+
+  // Toggle checkbox
+  document.getElementById('chk-' + d.id).addEventListener('change', function () {
+    if (this.checked) {
+      lyr.addTo(map);
+      document.getElementById('op-' + d.id).classList.add('visible');
+    } else {
+      map.removeLayer(lyr);
+      document.getElementById('op-' + d.id).classList.remove('visible');
+    }
+  });
+
+  // Opacity slider
+  document.getElementById('rng-' + d.id).addEventListener('input', function () {
+    lyr.setOpacity(this.value / 100);
+    document.getElementById('pct-' + d.id).textContent = this.value + '%';
+  });
+});
+
+})();
+</script>
+</body>
+</html>
