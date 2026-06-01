@@ -142,11 +142,15 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 11px;
   <div class="base-switcher">
     <button class="base-btn" id="btnSat" onclick="setBase('sat')">Satellite</button>
     <button class="base-btn active" id="btnOsm" onclick="setBase('osm')">Map</button>
+    <span style="width:1px;background:rgba(255,255,255,0.12);margin:0 0.1rem;align-self:stretch;"></span>
+    <button class="base-btn active" id="btnNorth" onclick="setBearing(0)">N&thinsp;&#8593;</button>
+    <button class="base-btn" id="btnWest" onclick="setBearing(90)">W&thinsp;&#8593;</button>
   </div>
 </div>
 
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-rotate@0.2.8/dist/leaflet-rotate-src.js"></script>
 
 <!-- Leaflet.ImageOverlay.Rotated — fixed: nested divs prevent setPosition/transform conflict -->
 <script>
@@ -288,7 +292,7 @@ function kmlCorners(n, s, e, w, rotDeg) {
 }
 
 // ── Map ──────────────────────────────────────────────────────────────────────
-var map = L.map('map', { zoomControl: false, maxZoom: 22 }).setView([54.09855, -4.63524], 19);
+var map = L.map('map', { zoomControl: false, maxZoom: 22, rotate: true, bearing: 0 }).setView([54.09855, -4.63524], 19);
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
 var satellite = L.tileLayer(
@@ -306,6 +310,12 @@ window.setBase = function (type) {
   else { map.removeLayer(satellite); osm.addTo(map); }
   document.getElementById('btnSat').classList.toggle('active', type === 'sat');
   document.getElementById('btnOsm').classList.toggle('active', type === 'osm');
+};
+
+window.setBearing = function (deg) {
+  map.setBearing(deg);
+  document.getElementById('btnNorth').classList.toggle('active', deg === 0);
+  document.getElementById('btnWest').classList.toggle('active', deg === 90);
 };
 
 // ── Build panel rows first, then wire up Leaflet overlays ─────────────────────
