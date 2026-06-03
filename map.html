@@ -273,7 +273,15 @@ var LAYERS = [
   { id:'2015',  name:'2015 Registration',   color:'#dc143c',
     img:'map/2015-land-registration.png',
     desc:'First registered title — 43-01219, 7 October 2015',
-    n:54.09904679849662,  s:54.09827594425696, e:-4.634877499990194, w:-4.635792894676105, rot:2.85320520401001 }
+    n:54.09904679849662,  s:54.09827594425696, e:-4.634877499990194, w:-4.635792894676105, rot:2.85320520401001 },
+  { id:'1950s', name:'c.1950 OS Index Map (Sheet 1)', color:'#8B6B14',
+    img:'map/PRO-Index-Map-Rushen-Abbey-Sheet1-1.png',
+    desc:'PRO planning index map, Sheet 1 — OS base c.1950',
+    n:54.0999139, s:54.0971750, e:-4.6322306, w:-4.6365194, rot:2.1540 },
+  { id:'1970s', name:'c.1970 OS Index Map (Sheet 2)', color:'#4A7C8B',
+    img:'map/PRO-Index-Map-Rushen-Abbey-Sheet2-1.png',
+    desc:'PRO planning index map, Sheet 2 — OS base c.1970',
+    tl:[54.1002806, -4.6371056], tr:[54.1004000, -4.6319750], bl:[54.0969444, -4.6369389] }
 ];
 
 // KML LatLonBox + CCW rotation → topLeft, topRight, bottomLeft corner LatLngs
@@ -339,8 +347,10 @@ LAYERS.forEach(function (d) {
     '</div>';
   panel.appendChild(row);
 
-  // 2. Leaflet layer
-  var corners = kmlCorners(d.n, d.s, d.e, d.w, d.rot);
+  // 2. Leaflet layer — use explicit corners if provided, otherwise compute from bounding box
+  var corners = d.tl
+    ? { tl: L.latLng(d.tl), tr: L.latLng(d.tr), bl: L.latLng(d.bl) }
+    : kmlCorners(d.n, d.s, d.e, d.w, d.rot);
   var lyr = L.imageOverlay.rotated(d.img, corners.tl, corners.tr, corners.bl, { opacity: 0.75 });
   lyrMap[d.id] = lyr;
 
